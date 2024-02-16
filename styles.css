@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,600;1,300&family=Romanesco&family=Rosarivo:ital@0;1&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --primary-color-light: #fafafa;
+  --secondary-color-light: #e1ff57;
+  --text-primary-light: #373f49;
+  --text-secondary-light: #7f8288;
+  --text-display-size: 6rem;
+  --text-navigation-size: 0.65rem;
+  --text-title-size: 4rem;
+  --text-paragraph-size: 1rem;
+
+  --space-xs: 0.5rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2rem;
+  --space-xl: 4rem;
+  --space-2xl: 8rem;
+}
+/* debug
+* {
+  border: 1px dotted blue;
+} */
+
+/* reset */
+ul {
+  list-style: none;
+}
+li {
+  text-indent: 0;
+  list-style-type: 0;
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+}
+
+/* The Body */
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: white;
+  /* background: linear-gradient(
+    to top,
+    #ffffff,
+    #c9cacc
+  ); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  font-family: "Inter Tight", sans-serif;
+}
+
+/* Header and navigation */
+header {
+  font-size: var(--text-navigation-size);
+  color: var(--text-secondary-light);
+}
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1000;
+}
+nav *:not(ul, a) {
+  padding: var(--space-xs);
+}
+nav ul li {
+  display: inline-block;
+}
+#brand {
+  color: var(--text-primary-light);
+  font-weight: bold;
+}
+
+#social-media {
+  position: fixed;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-xs);
+  text-align: center;
+  z-index: 999;
+}
+
+#social-media li {
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+
+  writing-mode: vertical-lr; /* Vertical text */
+  text-orientation: mixed; /*Rotate text correctly */
+  transform: rotateZ(180deg);
+}
+a {
+  text-decoration: none;
+  color: var(--text-secondary-light);
+  transition: color 0.3s ease-in-out;
+  position: relative;
+
+  cursor: pointer;
+}
+
+/* Hover underline animations */
+a:hover {
+  color: var(--text-primary-light);
+}
+a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--text-primary-light);
+  visibility: hidden;
+  transition: transform 0.25s ease-out;
+
+  /* horizontal */
+  width: 100%;
+  height: 0.05em;
+  transform: scaleX(0);
+  transform-origin: bottom left;
+}
+.vertical a::before {
+  width: 0.05em;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: top right;
+}
+a:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+.vertical > a:hover::before {
+  transform: scaleY(1);
+}
+
+/* The Content */
+
+main {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 var(--space-xs);
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#welcome {
+  text-align: left;
+  font-size: var(--text-display-size);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+#hello-text-1 {
+  font-family: "Romanesco", cursive;
+}
+#hello-text-2 {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bold;
+}
+#hello-text-3 {
+  font-family: "Rosarivo", cursive;
+  font-weight: normal;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+#roles-text {
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 0.6;
+}
+
+.cursor {
+  display: inline-block;
+  vertical-align: middle;
+  width: 0.7rem;
+  height: var(--text-display-size);
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(249, 57, 170) 9.8%,
+    rgb(134, 176, 255) 94.9%
+  );
+  margin-left: 0.1em;
+}
