@@ -1,14 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,600;1,300&family=Romanesco&family=Rosarivo:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Radley:ital@0;1&display=swap");
 
 :root {
-  --primary-color-light: #fafafa;
-  --secondary-color-light: #e1ff57;
-  --text-primary-light: #373f49;
-  --text-secondary-light: #7f8288;
-  --text-display-size: 6rem;
-  --text-navigation-size: 0.65rem;
-  --text-title-size: 4rem;
-  --text-paragraph-size: 1rem;
+  --neutral: #7f8288;
+
+  --neutral-light: color-mix(in srgb, var(--neutral), white);
+  --neutral-lighter: color-mix(in srgb, var(--neutral), white 75%);
+  --neutral-dark: color-mix(in srgb, var(--neutral), black);
+  --neutral-darker: color-mix(in srgb, var(--neutral), black 75%);
 
   /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,18,1.414,4,1,&s=0.75,1.5|2|3|4|6,&g=s,l,xl,12 */
 
@@ -28,20 +29,20 @@
   --space-xl-2xl: clamp(3rem, 2.4783rem + 2.6087vi, 4.5rem);
   --space-2xl-3xl: clamp(4rem, 3.0435rem + 4.7826vi, 6.75rem);
 
-  /* @link https://utopia.fyi/type/calculator?c=320,15,1.2,1240,17,1.414,4,1,&s=0.75,1.5|2|3|4|6,&g=s,l,xl,12 */
+  /* @link https://utopia.fyi/type/calculator?c=320,15,1.2,1280,17,1.618,4,1,&s=0.75,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
-  /* Step -1: 12.5px → 12.0226px */
-  --typo--1: clamp(0.7514rem, 0.7916rem + -0.0519vi, 0.7813rem);
+  /* Step -1: 12.5px → 10.5068px */
+  --typo--1: clamp(0.6567rem, 0.8228rem + -0.2076vi, 0.7813rem);
   /* Step 0: 15px → 17px */
-  --typo-0: clamp(0.9375rem, 0.894rem + 0.2174vi, 1.0625rem);
-  /* Step 1: 18px → 24.038px */
-  --typo-1: clamp(1.125rem, 0.9937rem + 0.6563vi, 1.5024rem);
-  /* Step 2: 21.6px → 33.9897px */
-  --typo-2: clamp(1.35rem, 1.0807rem + 1.3467vi, 2.1244rem);
-  /* Step 3: 25.92px → 48.0615px */
-  --typo-3: clamp(1.62rem, 1.1387rem + 2.4067vi, 3.0038rem);
-  /* Step 4: 31.104px → 67.9589px */
-  --typo-4: clamp(1.944rem, 1.1428rem + 4.006vi, 4.2474rem);
+  --typo-0: clamp(0.9375rem, 0.8958rem + 0.2083vi, 1.0625rem);
+  /* Step 1: 18px → 27.506px */
+  --typo-1: clamp(1.125rem, 0.927rem + 0.9902vi, 1.7191rem);
+  /* Step 2: 21.6px → 44.5047px */
+  --typo-2: clamp(1.35rem, 0.8728rem + 2.3859vi, 2.7815rem);
+  /* Step 3: 25.92px → 72.0086px */
+  --typo-3: clamp(1.62rem, 0.6598rem + 4.8009vi, 4.5005rem);
+  /* Step 4: 31.104px → 116.5099px */
+  --typo-4: clamp(1.944rem, 0.1647rem + 8.8965vi, 7.2819rem);
 }
 /* debug
 * {
@@ -54,6 +55,8 @@
 *,
 *:before,
 *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -99,31 +102,31 @@ small {
 /* The Body */
 body {
   position: relative;
+  display: block;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: white;
+  background-color: var(--neutral-lighter);
   /* background: linear-gradient(
     to top,
     #ffffff,
     #c9cacc
   ); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  font-family: "Inter Tight", sans-serif;
+  font-family: "Inconsolata", monospace;
   line-height: 1.5;
+  font-optical-sizing: auto;
 }
 
 main {
-  box-sizing: border-box;
   position: relative;
-  margin: 0 var(--space-xs-s);
-  z-index: 500;
 }
 main p,
 main ul {
   margin-block-start: var(--space-xs-s);
   margin-inline-start: 0.5rem;
   margin-inline-end: 0.5rem;
+  line-height: 2;
 }
 
 section {
@@ -136,48 +139,78 @@ section {
   flex-direction: column;
   justify-content: center;
 }
+.full-height {
+  height: 100vh;
+}
+
+/*******************************
+* Background Decoration
+*******************************/
+#grid {
+  width: 100%;
+  position: fixed;
+}
+.container {
+  padding-left: var(--space-xl);
+  padding-right: var(--space-xl);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 970px;
+}
+
+.col-1-4 {
+  width: 25%;
+  float: left;
+}
+.grid-line {
+  border-left: 1px solid var(--neutral-light);
+}
+.grid-line:last-child {
+  border-right: 1px solid var(--neutral-light);
+}
 
 /*******************************
 * Header and navigation
 *******************************/
 
-header p,
-header ul {
-  font-size: var(--typo--1);
-  color: var(--text-secondary-light);
-}
-nav {
+header {
+  width: 100%;
   position: fixed;
   top: 0;
-  width: 100%;
+  z-index: 1000;
+
+  font-size: var(--typo--1);
+  color: var(--neutral);
+}
+nav {
+  padding: var(--space-xs) 0;
   display: flex;
   justify-content: space-between;
-  z-index: 1000;
 }
-nav *:not(ul, a) {
-  padding: var(--space-xs);
-}
+
 nav ul li {
   display: inline-block;
+  margin-left: var(--space-xs);
 }
+
 #brand {
-  color: var(--text-primary-light);
+  color: var(--neutral-darker);
+  font-family: "Inter Tight", sans-serif;
   font-weight: bold;
 }
 
-#social-media {
+#wrap-social {
   position: fixed;
   right: 0;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: var(--space-xs);
   text-align: center;
-  z-index: 999;
 }
 
-#social-media li {
+#wrap-social li {
   margin-bottom: 1rem;
   text-transform: uppercase;
 
@@ -187,7 +220,7 @@ nav ul li {
 }
 a {
   text-decoration: none;
-  color: var(--text-secondary-light);
+  color: var(--neutral);
   transition: color 0.3s ease-in-out;
   position: relative;
 
@@ -196,14 +229,14 @@ a {
 
 /* Hover underline animations */
 a:hover {
-  color: var(--text-primary-light);
+  color: var(--neutral-darker);
 }
 a::before {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: var(--text-primary-light);
+  background-color: var(--neutral-darker);
   visibility: hidden;
   transition: transform 0.25s ease-out;
 
@@ -227,14 +260,16 @@ a:hover::before {
   transform: scaleY(1);
 }
 
-/* Hero */
+/*******************************
+* Hero
+*******************************/
 
 #welcome {
   text-align: left;
 }
 #welcome > * {
   font-size: var(--typo-4);
-  line-height: 1;
+  line-height: 0.8;
   letter-spacing: -0.06em;
 }
 #hello-text-1 {
@@ -245,16 +280,16 @@ a:hover::before {
   font-weight: bold;
 }
 #hello-text-3 {
-  font-family: "Rosarivo", cursive;
+  font-family: "Radley", serif;
   font-weight: normal;
   text-transform: uppercase;
-  line-height: 1.1;
 }
 
 #roles-text {
+  font-family: "Inter Tight", sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-  line-height: 0.6;
+  margin-block-start: var(--space-xs-s);
 }
 
 .cursor {
@@ -284,7 +319,7 @@ a:hover::before {
   text-align: right;
 }
 #avatar {
-  width: 300px;
+  width: var(--space-2xl-3xl);
   height: auto;
   border-radius: 1rem;
   transform: rotateZ(5deg);
