@@ -27,6 +27,7 @@
 
     <!-- JS -->
     <script src="script.js" defer></script>
+    <script src="colorpicker.js" defer></script>
 </head>
 
 <body>
@@ -53,7 +54,7 @@
 
         <div id="wrap-social" class="vertical">
             <ul>
-                <li><a rel="noopener" href="https://codepen.io/olgavegh" target="_blank">iCodethis</a></li>
+                <li><a rel="noopener" href="https://codepen.io/olgavegh" target="_blank">Codepen</a></li>
                 <li><a rel="noopener" href="https://www.instagram.com/codeandcanvas_/" target="_blank">Instagram</a>
                 </li>
                 <li><a rel="noopener" href="https://www.behance.net/olgavgh" target="_blank">Behance</a></li>
@@ -64,8 +65,19 @@
         </div>
     </header>
 
-    <main class="container">
+    <div id="color-magic">
+        <div class="animated-arc" style="--i: 1;">
+            <p class="arc-text"> - You can select your preferred text color using a color picker -
+            </p>
+        </div>
+        <div class="animated-arc" style="--i: 2;">
+            <p class="arc-text"> -> SELECT A COLOR -> SELECT A COLOR</p>
+        </div>
+        <input type="color" id="colorPicker">
+    </div>
 
+
+    <main class="container">
         <section id="welcome">
             <p id="hello-text-1">Hey,</p>
             <p id="hello-text-2">I'm Olgi,</p>

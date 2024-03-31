@@ -4,12 +4,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Radley:ital@0;1&display=swap");
 
 :root {
-  --neutral: #7f8288;
+  /* --dynamic-color: #55818a; */
+  --dynamic-color: #11272c;
+  --dynamic-color-light: color-mix(in srgb, var(--dynamic-color), white 40%);
+  --dynamic-color-lighter: color-mix(in srgb, var(--dynamic-color), white 75%);
+  --dynamic-color-dark: color-mix(in srgb, var(--dynamic-color), black 40%);
+  --dynamic-color-darker: color-mix(in srgb, var(--dynamic-color), black 75%);
 
-  --neutral-light: color-mix(in srgb, var(--neutral), white);
-  --neutral-lighter: color-mix(in srgb, var(--neutral), white 75%);
-  --neutral-dark: color-mix(in srgb, var(--neutral), black);
-  --neutral-darker: color-mix(in srgb, var(--neutral), black 75%);
+  --contrast-color: #d5dfe2;
+  --contrast-color-light: color-mix(in srgb, var(--contrast-color), white 40%);
+  --contrast-color-lighter: color-mix(
+    in srgb,
+    var(--contrast-color),
+    white 75%
+  );
+  --contrast-color-dark: color-mix(in srgb, var(--contrast-color), black 40%);
+  --contrast-color-darker: color-mix(in srgb, var(--contrast-color), black 75%);
 
   /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,18,1.414,4,1,&s=0.75,1.5|2|3|4|6,&g=s,l,xl,12 */
 
@@ -81,6 +91,7 @@ a {
 h1,
 h2 {
   margin-block-start: var(--space-m-l);
+  color: var(--dynamic-color);
 }
 h1 {
   font-size: var(--typo-3);
@@ -106,16 +117,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--neutral-lighter);
-  /* background: linear-gradient(
-    to top,
-    #ffffff,
-    #c9cacc
-  ); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background-color: var(--contrast-color);
   font-family: "Inconsolata", monospace;
   line-height: 1.5;
   font-optical-sizing: auto;
+  color: var(--dynamic-color-light);
 }
 
 main {
@@ -127,6 +133,15 @@ main ul {
   margin-inline-start: 0.5rem;
   margin-inline-end: 0.5rem;
   line-height: 2;
+}
+
+.container {
+  padding-left: var(--space-xl);
+  padding-right: var(--space-xl);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 970px;
+  position: relative;
 }
 
 section {
@@ -150,23 +165,97 @@ section {
   width: 100%;
   position: fixed;
 }
-.container {
-  padding-left: var(--space-xl);
-  padding-right: var(--space-xl);
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 970px;
-}
 
 .col-1-4 {
   width: 25%;
   float: left;
 }
 .grid-line {
-  border-left: 1px solid var(--neutral-light);
+  border-left: 1px solid var(--contrast-color-dark);
 }
 .grid-line:last-child {
-  border-right: 1px solid var(--neutral-light);
+  border-right: 1px solid var(--contrast-color-dark);
+}
+
+#color-magic {
+  --max-size: 200px;
+  width: var(--max-size);
+  height: var(--max-size);
+  overflow: hidden;
+
+  position: absolute;
+  top: calc(10vw);
+  right: calc(10vw);
+
+  font-size: var(--typo--1);
+}
+
+#colorPicker {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid lightgrey;
+  padding: 8px;
+  background-color: white;
+  transition: all 0.2s ease-out allow-discrete;
+  &:hover {
+    box-shadow: 1px 2px 5px 0px rgba(79, 79, 79, 0.75);
+  }
+  &:focus {
+    padding: 11px;
+  }
+  &::-webkit-color-swatch-wrapper {
+    padding: 0; /* Remove padding */
+    border: none; /* Remove border */
+  }
+  &::-webkit-color-swatch {
+    border-radius: 50%; /* Make color swatch circular */
+    border: none; /* Remove border */
+    width: 100%; /* Ensure color swatch fills the circle */
+    height: 100%; /* Ensure color swatch fills the circle */
+  }
+}
+
+.animated-arc {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  &:hover .arc-text {
+    animation-play-state: paused;
+  }
+}
+
+.arc-text {
+  --size: calc(var(--max-size) - var(--max-size) / 3 * (var(--i) - 1));
+  width: var(--size);
+  height: var(--size);
+  animation: arcAnimation 10s linear infinite;
+}
+
+.animated-arc:nth-child(odd) .arc-text {
+  animation-direction: reverse;
+}
+
+.arc-text span {
+  position: absolute;
+  left: 50%;
+  transform-origin: 0 calc(var(--size) / 2);
+}
+
+@keyframes arcAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /*******************************
@@ -180,7 +269,6 @@ header {
   z-index: 1000;
 
   font-size: var(--typo--1);
-  color: var(--neutral);
 }
 nav {
   padding: var(--space-xs) 0;
@@ -194,7 +282,7 @@ nav ul li {
 }
 
 #brand {
-  color: var(--neutral-darker);
+  color: var(--dynamic-color);
   font-family: "Inter Tight", sans-serif;
   font-weight: bold;
 }
@@ -220,7 +308,7 @@ nav ul li {
 }
 a {
   text-decoration: none;
-  color: var(--neutral);
+  color: var(--dynamic-color);
   transition: color 0.3s ease-in-out;
   position: relative;
 
@@ -229,14 +317,14 @@ a {
 
 /* Hover underline animations */
 a:hover {
-  color: var(--neutral-darker);
+  color: var(--dynamic-color-darker);
 }
 a::before {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: var(--neutral-darker);
+  background-color: var(--dynamic-color-darker);
   visibility: hidden;
   transition: transform 0.25s ease-out;
 
@@ -266,6 +354,7 @@ a:hover::before {
 
 #welcome {
   text-align: left;
+  color: var(--dynamic-color-dark);
 }
 #welcome > * {
   font-size: var(--typo-4);
@@ -283,6 +372,7 @@ a:hover::before {
   font-family: "Radley", serif;
   font-weight: normal;
   text-transform: uppercase;
+  color: var(--dynamic-color);
 }
 
 #roles-text {
