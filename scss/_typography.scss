@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,600;1,300&family=Romanesco&family=Rosarivo:ital@0;1&display=swap");
+
+:root {
+  /* @link https://utopia.fyi/type/calculator?c=320,15,1.2,1280,17,1.618,4,1,&s=0.75,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+  /* Step -1: 12.5px → 10.5068px */
+  --typo--1: clamp(0.6567rem, 0.8228rem + -0.2076vi, 0.7813rem);
+  /* Step 0: 15px → 17px */
+  --typo-0: clamp(0.9375rem, 0.8958rem + 0.2083vi, 1.0625rem);
+  /* Step 1: 18px → 27.506px */
+  --typo-1: clamp(1.125rem, 0.927rem + 0.9902vi, 1.7191rem);
+  /* Step 2: 21.6px → 44.5047px */
+  --typo-2: clamp(1.35rem, 0.8728rem + 2.3859vi, 2.7815rem);
+  /* Step 3: 25.92px → 72.0086px */
+  --typo-3: clamp(1.62rem, 0.6598rem + 4.8009vi, 4.5005rem);
+  /* Step 4: 31.104px → 116.5099px */
+  --typo-4: clamp(1.944rem, 0.1647rem + 8.8965vi, 7.2819rem);
+}
+
+body {
+  font-family: "Inconsolata", monospace;
+  line-height: 1.5;
+  font-optical-sizing: auto;
+}
+header {
+  font-size: var(--typo--1);
+}
+#brand {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: var(--typo-3);
+}
+h2 {
+  font-size: var(--typo-2);
+}
+h3 {
+  font-size: var(--typo-1);
+}
+p,
+ul {
+  font-size: var(--typo-0);
+}
+small {
+  font-size: var(--typo--1);
+}

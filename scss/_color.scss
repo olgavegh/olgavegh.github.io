@@ -1,0 +1,33 @@
+:root {
+  /* --dynamic-color: #55818a; */
+  --dynamic-color: #11272c;
+  --dynamic-color-light: color-mix(in srgb, var(--dynamic-color), white 40%);
+  --dynamic-color-lighter: color-mix(in srgb, var(--dynamic-color), white 75%);
+  --dynamic-color-dark: color-mix(in srgb, var(--dynamic-color), black 40%);
+  --dynamic-color-darker: color-mix(in srgb, var(--dynamic-color), black 75%);
+
+  --contrast-color: #d5dfe2;
+  --contrast-color-light: color-mix(in srgb, var(--contrast-color), white 40%);
+  --contrast-color-lighter: color-mix(
+    in srgb,
+    var(--contrast-color),
+    white 75%
+  );
+  --contrast-color-dark: color-mix(in srgb, var(--contrast-color), black 40%);
+  --contrast-color-darker: color-mix(in srgb, var(--contrast-color), black 75%);
+}
+
+body {
+  background-color: var(--contrast-color);
+  color: var(--dynamic-color-light);
+}
+h1,
+h2 {
+  color: var(--dynamic-color);
+}
+#brand {
+  color: var(--dynamic-color);
+}
+a {
+  color: var(--dynamic-color);
+}

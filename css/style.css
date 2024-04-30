@@ -1,8 +1,5 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,600;1,300&family=Romanesco&family=Rosarivo:ital@0;1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Radley:ital@0;1&display=swap");
-
 :root {
   /* --dynamic-color: #55818a; */
   --dynamic-color: #11272c;
@@ -10,7 +7,6 @@
   --dynamic-color-lighter: color-mix(in srgb, var(--dynamic-color), white 75%);
   --dynamic-color-dark: color-mix(in srgb, var(--dynamic-color), black 40%);
   --dynamic-color-darker: color-mix(in srgb, var(--dynamic-color), black 75%);
-
   --contrast-color: #d5dfe2;
   --contrast-color-light: color-mix(in srgb, var(--contrast-color), white 40%);
   --contrast-color-lighter: color-mix(
@@ -20,94 +16,24 @@
   );
   --contrast-color-dark: color-mix(in srgb, var(--contrast-color), black 40%);
   --contrast-color-darker: color-mix(in srgb, var(--contrast-color), black 75%);
-
-  /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,18,1.414,4,1,&s=0.75,1.5|2|3|4|6,&g=s,l,xl,12 */
-
-  --space-xs: clamp(0.75rem, 0.7065rem + 0.2174vi, 0.875rem);
-  --space-s: clamp(1rem, 0.9565rem + 0.2174vi, 1.125rem);
-  --space-m: clamp(1.5rem, 1.4348rem + 0.3261vi, 1.6875rem);
-  --space-l: clamp(2rem, 1.913rem + 0.4348vi, 2.25rem);
-  --space-xl: clamp(3rem, 2.8696rem + 0.6522vi, 3.375rem);
-  --space-2xl: clamp(4rem, 3.8261rem + 0.8696vi, 4.5rem);
-  --space-3xl: clamp(6rem, 5.7391rem + 1.3043vi, 6.75rem);
-
-  /* One-up pairs */
-  --space-xs-s: clamp(0.75rem, 0.6196rem + 0.6522vi, 1.125rem);
-  --space-s-m: clamp(1rem, 0.7609rem + 1.1957vi, 1.6875rem);
-  --space-m-l: clamp(1.5rem, 1.2391rem + 1.3043vi, 2.25rem);
-  --space-l-xl: clamp(2rem, 1.5217rem + 2.3913vi, 3.375rem);
-  --space-xl-2xl: clamp(3rem, 2.4783rem + 2.6087vi, 4.5rem);
-  --space-2xl-3xl: clamp(4rem, 3.0435rem + 4.7826vi, 6.75rem);
-
-  /* @link https://utopia.fyi/type/calculator?c=320,15,1.2,1280,17,1.618,4,1,&s=0.75,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-
-  /* Step -1: 12.5px → 10.5068px */
-  --typo--1: clamp(0.6567rem, 0.8228rem + -0.2076vi, 0.7813rem);
-  /* Step 0: 15px → 17px */
-  --typo-0: clamp(0.9375rem, 0.8958rem + 0.2083vi, 1.0625rem);
-  /* Step 1: 18px → 27.506px */
-  --typo-1: clamp(1.125rem, 0.927rem + 0.9902vi, 1.7191rem);
-  /* Step 2: 21.6px → 44.5047px */
-  --typo-2: clamp(1.35rem, 0.8728rem + 2.3859vi, 2.7815rem);
-  /* Step 3: 25.92px → 72.0086px */
-  --typo-3: clamp(1.62rem, 0.6598rem + 4.8009vi, 4.5005rem);
-  /* Step 4: 31.104px → 116.5099px */
-  --typo-4: clamp(1.944rem, 0.1647rem + 8.8965vi, 7.2819rem);
-}
-/* debug
-* {
-  border: 1px dotted blue;
-} */
-
-/*******************************
-* Reset
-*******************************/
-*,
-*:before,
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
-ul {
-  list-style: none;
+body {
+  background-color: var(--contrast-color);
+  color: var(--dynamic-color-light);
 }
-li {
-  text-indent: 0;
-  list-style-type: 0;
-  text-decoration: none;
-}
-a {
-  text-decoration: none;
-}
-
-/*******************************
-* General Styles
-*******************************/
 
 h1,
 h2 {
-  margin-block-start: var(--space-m-l);
   color: var(--dynamic-color);
 }
-h1 {
-  font-size: var(--typo-3);
+
+#brand {
+  color: var(--dynamic-color);
 }
-h2 {
-  font-size: var(--typo-2);
-}
-h3 {
-  font-size: var(--typo-1);
-}
-p,
-ul {
-  font-size: var(--typo-0);
-}
-small {
-  font-size: var(--typo--1);
+
+a {
+  color: var(--dynamic-color);
 }
 
 /* The Body */
@@ -117,16 +43,23 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--contrast-color);
   font-family: "Inconsolata", monospace;
   line-height: 1.5;
   font-optical-sizing: auto;
-  color: var(--dynamic-color-light);
 }
 
+h1,
+h2 {
+  margin-block-start: var(--space-m-l);
+}
+
+/*******************************
+* General Styles
+*******************************/
 main {
   position: relative;
 }
+
 main p,
 main ul {
   margin-block-start: var(--space-xs-s);
@@ -154,8 +87,118 @@ section {
   flex-direction: column;
   justify-content: center;
 }
+
 .full-height {
   height: 100vh;
+}
+
+:root {
+  /* @link https://utopia.fyi/type/calculator?c=320,15,1.2,1280,17,1.618,4,1,&s=0.75,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  /* Step -1: 12.5px → 10.5068px */
+  --typo--1: clamp(0.6567rem, 0.8228rem + -0.2076vi, 0.7813rem);
+  /* Step 0: 15px → 17px */
+  --typo-0: clamp(0.9375rem, 0.8958rem + 0.2083vi, 1.0625rem);
+  /* Step 1: 18px → 27.506px */
+  --typo-1: clamp(1.125rem, 0.927rem + 0.9902vi, 1.7191rem);
+  /* Step 2: 21.6px → 44.5047px */
+  --typo-2: clamp(1.35rem, 0.8728rem + 2.3859vi, 2.7815rem);
+  /* Step 3: 25.92px → 72.0086px */
+  --typo-3: clamp(1.62rem, 0.6598rem + 4.8009vi, 4.5005rem);
+  /* Step 4: 31.104px → 116.5099px */
+  --typo-4: clamp(1.944rem, 0.1647rem + 8.8965vi, 7.2819rem);
+}
+
+body {
+  font-family: "Inconsolata", monospace;
+  line-height: 1.5;
+  font-optical-sizing: auto;
+}
+
+header {
+  font-size: var(--typo--1);
+}
+
+#brand {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: var(--typo-3);
+}
+
+h2 {
+  font-size: var(--typo-2);
+}
+
+h3 {
+  font-size: var(--typo-1);
+}
+
+p,
+ul {
+  font-size: var(--typo-0);
+}
+
+small {
+  font-size: var(--typo--1);
+}
+
+:root {
+  /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,18,1.414,4,1,&s=0.75,1.5|2|3|4|6,&g=s,l,xl,12 */
+  --space-xs: clamp(0.75rem, 0.7065rem + 0.2174vi, 0.875rem);
+  --space-s: clamp(1rem, 0.9565rem + 0.2174vi, 1.125rem);
+  --space-m: clamp(1.5rem, 1.4348rem + 0.3261vi, 1.6875rem);
+  --space-l: clamp(2rem, 1.913rem + 0.4348vi, 2.25rem);
+  --space-xl: clamp(3rem, 2.8696rem + 0.6522vi, 3.375rem);
+  --space-2xl: clamp(4rem, 3.8261rem + 0.8696vi, 4.5rem);
+  --space-3xl: clamp(6rem, 5.7391rem + 1.3043vi, 6.75rem);
+  /* One-up pairs */
+  --space-xs-s: clamp(0.75rem, 0.6196rem + 0.6522vi, 1.125rem);
+  --space-s-m: clamp(1rem, 0.7609rem + 1.1957vi, 1.6875rem);
+  --space-m-l: clamp(1.5rem, 1.2391rem + 1.3043vi, 2.25rem);
+  --space-l-xl: clamp(2rem, 1.5217rem + 2.3913vi, 3.375rem);
+  --space-xl-2xl: clamp(3rem, 2.4783rem + 2.6087vi, 4.5rem);
+  --space-2xl-3xl: clamp(4rem, 3.0435rem + 4.7826vi, 6.75rem);
+}
+
+@keyframes arcAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* debug
+* {
+  border: 1px dotted blue;
+} */
+/*******************************
+* Reset
+*******************************/
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  text-indent: 0;
+  list-style-type: 0;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 /*******************************
@@ -170,23 +213,26 @@ section {
   width: 25%;
   float: left;
 }
+
 .grid-line {
   border-left: 1px solid var(--contrast-color-dark);
 }
+
 .grid-line:last-child {
   border-right: 1px solid var(--contrast-color-dark);
 }
 
+/*******************************
+* Color Picker
+*******************************/
 #color-magic {
   --max-size: 200px;
   width: var(--max-size);
   height: var(--max-size);
   overflow: hidden;
-
   position: absolute;
-  top: calc(10vw);
-  right: calc(10vw);
-
+  top: 10vw;
+  right: 10vw;
   font-size: var(--typo--1);
 }
 
@@ -195,7 +241,6 @@ section {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -203,22 +248,22 @@ section {
   padding: 8px;
   background-color: white;
   transition: all 0.2s ease-out allow-discrete;
-  &:hover {
-    box-shadow: 1px 2px 5px 0px rgba(79, 79, 79, 0.75);
-  }
-  &:focus {
-    padding: 11px;
-  }
-  &::-webkit-color-swatch-wrapper {
-    padding: 0; /* Remove padding */
-    border: none; /* Remove border */
-  }
-  &::-webkit-color-swatch {
-    border-radius: 50%; /* Make color swatch circular */
-    border: none; /* Remove border */
-    width: 100%; /* Ensure color swatch fills the circle */
-    height: 100%; /* Ensure color swatch fills the circle */
-  }
+}
+#colorPicker:hover {
+  box-shadow: 1px 2px 5px 0px rgba(79, 79, 79, 0.75);
+}
+#colorPicker:focus {
+  padding: 11px;
+}
+#colorPicker::-webkit-color-swatch-wrapper {
+  padding: 0; /* Remove padding */
+  border: none; /* Remove border */
+}
+#colorPicker::-webkit-color-swatch {
+  border-radius: 50%; /* Make color swatch circular */
+  border: none; /* Remove border */
+  width: 100%; /* Ensure color swatch fills the circle */
+  height: 100%; /* Ensure color swatch fills the circle */
 }
 
 .animated-arc {
@@ -226,10 +271,9 @@ section {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
-  &:hover .arc-text {
-    animation-play-state: paused;
-  }
+}
+.animated-arc:hover .arc-text {
+  animation-play-state: paused;
 }
 
 .arc-text {
@@ -249,27 +293,16 @@ section {
   transform-origin: 0 calc(var(--size) / 2);
 }
 
-@keyframes arcAnimation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /*******************************
 * Header and navigation
 *******************************/
-
 header {
   width: 100%;
   position: fixed;
   top: 0;
   z-index: 1000;
-
-  font-size: var(--typo--1);
 }
+
 nav {
   padding: var(--space-xs) 0;
   display: flex;
@@ -279,12 +312,6 @@ nav {
 nav ul li {
   display: inline-block;
   margin-left: var(--space-xs);
-}
-
-#brand {
-  color: var(--dynamic-color);
-  font-family: "Inter Tight", sans-serif;
-  font-weight: bold;
 }
 
 #wrap-social {
@@ -301,17 +328,15 @@ nav ul li {
 #wrap-social li {
   margin-bottom: 1rem;
   text-transform: uppercase;
-
   writing-mode: vertical-lr; /* Vertical text */
   text-orientation: mixed; /*Rotate text correctly */
   transform: rotateZ(180deg);
 }
+
 a {
   text-decoration: none;
-  color: var(--dynamic-color);
   transition: color 0.3s ease-in-out;
   position: relative;
-
   cursor: pointer;
 }
 
@@ -319,6 +344,7 @@ a {
 a:hover {
   color: var(--dynamic-color-darker);
 }
+
 a::before {
   content: "";
   position: absolute;
@@ -327,23 +353,25 @@ a::before {
   background-color: var(--dynamic-color-darker);
   visibility: hidden;
   transition: transform 0.25s ease-out;
-
   /* horizontal */
   width: 100%;
   height: 0.05em;
   transform: scaleX(0);
   transform-origin: bottom left;
 }
+
 .vertical a::before {
   width: 0.05em;
   height: 100%;
   transform: scaleY(0);
   transform-origin: top right;
 }
+
 a:hover::before {
   visibility: visible;
   transform: scaleX(1);
 }
+
 .vertical > a:hover::before {
   transform: scaleY(1);
 }
@@ -351,23 +379,26 @@ a:hover::before {
 /*******************************
 * Hero
 *******************************/
-
 #welcome {
   text-align: left;
   color: var(--dynamic-color-dark);
 }
+
 #welcome > * {
   font-size: var(--typo-4);
   line-height: 0.8;
   letter-spacing: -0.06em;
 }
+
 #hello-text-1 {
   font-family: "Romanesco", cursive;
 }
+
 #hello-text-2 {
   font-family: "Inter Tight", sans-serif;
   font-weight: bold;
 }
+
 #hello-text-3 {
   font-family: "Radley", serif;
   font-weight: normal;
@@ -387,11 +418,7 @@ a:hover::before {
   vertical-align: middle;
   width: calc(var(--typo-4) / 7);
   height: var(--typo-4);
-  background: radial-gradient(
-    circle at 10% 20%,
-    rgb(249, 57, 170) 9.8%,
-    rgb(134, 176, 255) 94.9%
-  );
+  background: radial-gradient(circle at 10% 20%, rgb(249, 57, 170) 9.8%, rgb(134, 176, 255) 94.9%);
   margin-left: 0.1em;
 }
 
@@ -402,15 +429,20 @@ a:hover::before {
   gap: 0.5rem;
   flex-wrap: wrap;
 }
+
 .row-container > * {
   flex: 1 1 300px;
 }
+
 #about .row-container > *:nth-child(2) {
   text-align: right;
 }
+
 #avatar {
   width: var(--space-2xl-3xl);
   height: auto;
   border-radius: 1rem;
   transform: rotateZ(5deg);
 }
+
+/*# sourceMappingURL=style.css.map */
