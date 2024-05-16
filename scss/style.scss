@@ -1,57 +1,14 @@
+@import "reset";
 @import "color";
 @import "layout";
 @import "typography";
 @import "spacing";
 @import "animation";
 
-/* debug
-* {
-  border: 1px dotted blue;
-} */
-
-/*******************************
-* Reset
-*******************************/
-*,
-*:before,
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-ul {
-  list-style: none;
-}
-li {
-  text-indent: 0;
-  list-style-type: 0;
-  text-decoration: none;
-}
-a {
-  text-decoration: none;
-}
-
-/*******************************
-* Background Decoration
-*******************************/
-#grid {
-  width: 100%;
-  position: fixed;
-}
-
-.col-1-4 {
-  width: 25%;
-  float: left;
-}
-.grid-line {
-  border-left: 1px solid var(--contrast-color-dark);
-}
-.grid-line:last-child {
-  border-right: 1px solid var(--contrast-color-dark);
-}
+/* debug */
+// * {
+//   border: 1px dotted blue;
+// }
 
 /*******************************
 * Color Picker
@@ -63,19 +20,10 @@ a {
   height: var(--max-size);
   overflow: hidden;
 
-  position: absolute;
-  top: calc(10vw);
-  right: calc(10vw);
-
   font-size: var(--typo--1);
 }
 
 #colorPicker {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -101,54 +49,9 @@ a {
   }
 }
 
-.animated-arc {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
-  &:hover .arc-text {
-    animation-play-state: paused;
-  }
-}
-
-.arc-text {
-  --size: calc(var(--max-size) - var(--max-size) / 3 * (var(--i) - 1));
-  width: var(--size);
-  height: var(--size);
-  animation: arcAnimation 10s linear infinite;
-}
-
-.animated-arc:nth-child(odd) .arc-text {
-  animation-direction: reverse;
-}
-
-.arc-text span {
-  position: absolute;
-  left: 50%;
-  transform-origin: 0 calc(var(--size) / 2);
-}
-
 /*******************************
 * Header and navigation
 *******************************/
-
-header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-}
-nav {
-  padding: var(--space-xs) 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-nav ul li {
-  display: inline-block;
-  margin-left: var(--space-xs);
-}
 
 #wrap-social {
   position: fixed;
@@ -214,29 +117,6 @@ a:hover::before {
 * Hero
 *******************************/
 
-#welcome {
-  text-align: left;
-  color: var(--dynamic-color-dark);
-}
-#welcome > * {
-  font-size: var(--typo-4);
-  line-height: 0.8;
-  letter-spacing: -0.06em;
-}
-#hello-text-1 {
-  font-family: "Romanesco", cursive;
-}
-#hello-text-2 {
-  font-family: "Inter Tight", sans-serif;
-  font-weight: bold;
-}
-#hello-text-3 {
-  font-family: "Radley", serif;
-  font-weight: normal;
-  text-transform: uppercase;
-  color: var(--dynamic-color);
-}
-
 #roles-text {
   font-family: "Inter Tight", sans-serif;
   font-weight: bold;
@@ -257,22 +137,62 @@ a:hover::before {
   margin-left: 0.1em;
 }
 
-/* About */
-.row-container {
+/*******************************
+* Structure
+*******************************/
+
+section {
+  width: 100%;
+  padding-top: $space-xl;
+  padding-bottom: $space-xl;
+  &.hero {
+    padding-bottom: 25vw;
+  }
+
+  @include md {
+    padding-left: 20%;
+
+    &.hero {
+      padding-top: $space-l;
+      padding-bottom: $space-l;
+    }
+    &#footer {
+      padding-top: $space-m;
+      padding-bottom: $space-m;
+    }
+  }
+}
+
+.flex {
   display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: $space-l;
+
+  > :first-child,
+  > :nth-child(2):not(.project-items) {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  @include md {
+    flex-direction: row;
+    > :first-child,
+    > :nth-child(2):not(.project-items) {
+      width: $space-l;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: $space-l;
+  }
 }
-.row-container > * {
-  flex: 1 1 300px;
+
+hr {
+  height: 1px;
 }
-#about .row-container > *:nth-child(2) {
-  text-align: right;
-}
-#avatar {
-  width: var(--space-2xl-3xl);
-  height: auto;
-  border-radius: 1rem;
-  transform: rotateZ(5deg);
+
+#footer svg {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
 }

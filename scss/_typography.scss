@@ -1,48 +1,78 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,600;1,300&family=Romanesco&family=Rosarivo:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
-:root {
-  /* @link https://utopia.fyi/type/calculator?c=320,15,1.2,1280,17,1.618,4,1,&s=0.75,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+@font-face {
+  font-family: "Metropolis";
+  font-style: bolder;
+  font-weight: 900;
+  src: url(../src/fonts/Metropolis-Black.otf) format("otf");
+}
+@font-face {
+  font-family: "Metropolis";
+  font-style: bold;
+  font-weight: 700;
+  src: url(../src/fonts/Metropolis-Bold.otf) format("otf");
+}
 
-  /* Step -1: 12.5px → 10.5068px */
-  --typo--1: clamp(0.6567rem, 0.8228rem + -0.2076vi, 0.7813rem);
-  /* Step 0: 15px → 17px */
-  --typo-0: clamp(0.9375rem, 0.8958rem + 0.2083vi, 1.0625rem);
-  /* Step 1: 18px → 27.506px */
-  --typo-1: clamp(1.125rem, 0.927rem + 0.9902vi, 1.7191rem);
-  /* Step 2: 21.6px → 44.5047px */
-  --typo-2: clamp(1.35rem, 0.8728rem + 2.3859vi, 2.7815rem);
-  /* Step 3: 25.92px → 72.0086px */
-  --typo-3: clamp(1.62rem, 0.6598rem + 4.8009vi, 4.5005rem);
-  /* Step 4: 31.104px → 116.5099px */
-  --typo-4: clamp(1.944rem, 0.1647rem + 8.8965vi, 7.2819rem);
+@font-face {
+  font-family: "Metropolis";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../src/fonts/Metropolis-Regular.otf) format("otf");
 }
 
 body {
-  font-family: "Inconsolata", monospace;
-  line-height: 1.5;
+  font-family: "Metropolis", "Helvetica", sans-serif;
+  line-height: 1.7;
   font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
 }
 header {
-  font-size: var(--typo--1);
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
 }
 #brand {
-  font-family: "Inter Tight", sans-serif;
+  font-size: calc(1rem + 1.2vw);
   font-weight: bold;
+  line-height: 1.6;
+  letter-spacing: -0.03em;
 }
 
 h1 {
-  font-size: var(--typo-3);
+  font-size: 3.1rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-style: bold;
 }
+@media screen and (min-width: 768px),
+  screen and (max-width: calc(1943px)) and (orientation: landscape) {
+  h1 {
+    font-size: calc(6vw + 1rem);
+    line-height: 1.12em;
+  }
+}
+
 h2 {
-  font-size: var(--typo-2);
+  font-size: 2rem;
+  line-height: 1;
 }
 h3 {
-  font-size: var(--typo-1);
+  font-size: 1.2rem;
+  line-height: 1;
 }
 p,
 ul {
-  font-size: var(--typo-0);
+  font-size: 1rem;
+  line-height: 1.6;
 }
 small {
-  font-size: var(--typo--1);
+  font-size: 0.8rem;
+}
+p + p {
+  margin-top: 1rem;
+}
+h1 + p {
+  margin-top: 1.5rem;
 }

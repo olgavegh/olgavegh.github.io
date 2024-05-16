@@ -1,6 +1,11 @@
 const rolesElement = document.getElementById("typed-text");
 const cursorElement = document.getElementById("cursor");
-const rolesList = ["webdesigner", "coder", "developer"];
+const rolesList = [
+  "Szia, Olga vagyok,",
+  "Hi, I am Olga,",
+  "Привет, я Ольга,",
+  "Hallo, ich bin Olga",
+];
 let roleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
