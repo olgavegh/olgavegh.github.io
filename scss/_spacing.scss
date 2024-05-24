@@ -62,28 +62,22 @@ $breakpoints: (
 // );
 
 $spacing-scales: (
-  "xs": 1,
-  "s": 1.25,
-  "m": 2,
-  "l": 4,
-  "xl": 8,
-  "xxl": 12,
+  "xs": 0.5,
+  "s": 1,
+  "m": 1.5,
+  "l": 2,
+  "xl": 3,
+  "xxl": 5,
 );
 
 :root {
   @each $level, $value in $spacing-scales {
-    --space-#{$level}: calc(
-      clamp(
-        #{$value} * 1rem,
-        #{$value} * 1rem + #{$value} * 0.25vw,
-        #{$value} * 1.4rem
-      )
-    );
+    --space-#{$level}: clamp(#{$value} * 1rem, 3.5vw, #{$value} * 3rem);
   }
 }
 // 1.25rem-3.5rem
-$space-m: clamp(1.45rem, 2.2162vw + 1.0068rem, 3.5rem);
-// 9.375rem-6.25rem
-// $space-xl: clamp(6.25rem, 10.4rem + -5.4348vi, 9.375rem);
-$space-l: 8vw;
-$space-xl: 15vw;
+// $space-m: clamp(1.45rem, 2.2162vw + 1.0068rem, 3.5rem);
+// $space-s: 2vw;
+// $space-m: 4vw;
+// $space-l: 8vw;
+// $space-xl: 15vw;

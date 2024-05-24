@@ -6,52 +6,19 @@
 @import "animation";
 
 /* debug */
-// * {
-//   border: 1px dotted blue;
-// }
-
-/*******************************
-* Color Picker
-*******************************/
-
-#color-magic {
-  --max-size: 200px;
-  width: var(--max-size);
-  height: var(--max-size);
-  overflow: hidden;
-
-  font-size: var(--typo--1);
-}
-
-#colorPicker {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid lightgrey;
-  padding: 8px;
-  background-color: white;
-  transition: all 0.2s ease-out allow-discrete;
-  &:hover {
-    box-shadow: 1px 2px 5px 0px rgba(79, 79, 79, 0.75);
-  }
-  &:focus {
-    padding: 11px;
-  }
-  &::-webkit-color-swatch-wrapper {
-    padding: 0; /* Remove padding */
-    border: none; /* Remove border */
-  }
-  &::-webkit-color-swatch {
-    border-radius: 50%; /* Make color swatch circular */
-    border: none; /* Remove border */
-    width: 100%; /* Ensure color swatch fills the circle */
-    height: 100%; /* Ensure color swatch fills the circle */
-  }
+* {
+  border: 1px dotted blue;
 }
 
 /*******************************
 * Header and navigation
 *******************************/
+#brand {
+  font-size: calc(1rem + 1vw);
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
 
 #wrap-social {
   position: fixed;
@@ -114,51 +81,29 @@ a:hover::before {
 }
 
 /*******************************
-* Hero
-*******************************/
-
-#roles-text {
-  font-family: "Inter Tight", sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-block-start: var(--space-xs-s);
-}
-
-.cursor {
-  display: inline-block;
-  vertical-align: middle;
-  width: calc(var(--typo-4) / 7);
-  height: var(--typo-4);
-  background: radial-gradient(
-    circle at 10% 20%,
-    rgb(249, 57, 170) 9.8%,
-    rgb(134, 176, 255) 94.9%
-  );
-  margin-left: 0.1em;
-}
-
-/*******************************
 * Structure
 *******************************/
 
 section {
   width: 100%;
-  padding-top: $space-xl;
-  padding-bottom: $space-xl;
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
   &.hero {
+    padding-top: 0;
     padding-bottom: 25vw;
   }
 
   @include md {
     padding-left: 20%;
 
+    padding-top: var(--space-l);
+    padding-bottom: var(--space-l);
     &.hero {
-      padding-top: $space-l;
-      padding-bottom: $space-l;
+      padding-bottom: var(--space-l);
     }
     &#footer {
-      padding-top: $space-m;
-      padding-bottom: $space-m;
+      padding-top: var(--space-m);
+      padding-bottom: var(--space-m);
     }
   }
 }
@@ -166,24 +111,27 @@ section {
 .flex {
   display: flex;
   flex-direction: column;
-  gap: $space-l;
+  gap: var(--space-xl);
 
-  > :first-child,
-  > :nth-child(2):not(.project-items) {
+  > :not(:last-child) {
     width: 100%;
     flex-shrink: 0;
   }
 
   @include md {
     flex-direction: row;
-    > :first-child,
-    > :nth-child(2):not(.project-items) {
-      width: $space-l;
+    gap: var(--space-l);
+    > :not(:last-child) {
+      width: var(--space-l);
     }
   }
 
   &:not(:last-child) {
-    margin-bottom: $space-l;
+    margin-bottom: var(--space-l);
+  }
+
+  + .flex {
+    margin-top: var(--space-xl);
   }
 }
 
@@ -195,4 +143,49 @@ hr {
   display: inline-block;
   width: 60px;
   height: 60px;
+}
+
+.project-item {
+  margin-top: 2rem;
+}
+
+/*******************************
+* Color Shift
+*******************************/
+#slider-group {
+  padding: 1em;
+  border-radius: 0.5em;
+  width: 80%;
+}
+
+.slider {
+  position: relative;
+  display: flex;
+  * {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+
+  input[type="range"] {
+    flex-grow: 1;
+    margin: 0 1em;
+    -webkit-appearance: none !important;
+    position: relative;
+    top: 1.5em;
+    height: 0.1em;
+    border: none;
+    outline: none;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    width: 12px;
+    height: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+  }
+  p:not(:first-child) {
+    width: 3ch;
+  }
 }

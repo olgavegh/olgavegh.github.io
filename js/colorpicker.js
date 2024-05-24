@@ -1,106 +1,65 @@
-const colorpickerElement = document.getElementById("colorPicker");
+function updateColor() {
+  const hue = document.getElementById("colorHue").value;
+  const saturation = document.getElementById("colorSat").value;
+  const lightness = document.getElementById("colorBright").value;
 
-colorpickerElement.addEventListener("input", function () {
-  // Retrieve the selected color
-  const selectedColor = colorpickerElement.value;
-  document.documentElement.style.setProperty("--dynamic-color", selectedColor);
+  document.documentElement.style.setProperty("--hue-color", hue);
+  document.documentElement.style.setProperty(
+    "--saturation-color",
+    saturation + "%"
+  );
+  document.documentElement.style.setProperty(
+    "--lightness-color",
+    lightness + "%"
+  );
 
-  const accentColor = generateAccentColor(selectedColor);
-  document.documentElement.style.setProperty("--accent-color", accentColor);
+  document.getElementById("hueValue").innerText = hue;
+  document.getElementById("satValue").innerText = saturation;
+  document.getElementById("brightValue").innerText = lightness;
 
-  const isLight = isColorLight(selectedColor);
-  const contrastMode = isLight ? "#222" : "#fff";
-
-  document.documentElement.style.setProperty("--contrast-color", contrastMode);
-});
-
-function isColorLight(color) {
-  const hslcolor = hexToHsl(color);
-  return hslcolor.l > 50;
+  // Call the function to update the text color
+  updateTextColor(hue, saturation, lightness);
 }
 
-function generateAccentColor(brandColor) {
-  // Convert brand color to HSL (Hue, Saturation, Lightness)
-  const hsl = hexToHsl(brandColor);
+function updateTextColor(hue, saturation, lightness) {
+  // Convert HSL to RGB
+  let r, g, b;
 
-  // Adjust hue, saturation, or lightness to generate accent color
-  const accentHue = (hsl.h + 180) % 360; // Rotate hue by 180 degrees
-  const accentSaturation = Math.min(100, hsl.s * 1.2); // Increase saturation by 20%
-  const accentLightness = Math.min(100, hsl.l * 1.2); // Increase lightness by 20%
+  // Adjust the hue, saturation, and lightness values
+  hue = hue / 360; // Hue is expected to be in the range [0, 1]
+  saturation = saturation / 100; // Saturation is expected to be in the range [0, 1]
+  lightness = lightness / 100; // Lightness is expected to be in the range [0, 1]
 
-  const accentColor = `hsl(${accentHue}, ${accentSaturation}%, ${accentLightness}%)`;
-  return accentColor;
-}
-
-/**
- * Converts hexadecimal color value to HSL (Hue, Saturation, Lightness) color space.
- * @param {string} hex - The hexadecimal color value (e.g., "#RRGGBB").
- * @returns {number{}} - An object containing the HSL values [h, s, l].
- */
-function hexToHsl(hex) {
-  // Remove "#" if present
-  hex = hex.replace("#", "");
-
-  // Convert hex to RGB
-  const r = parseInt(hex.substring(0, 2), 16) / 255;
-  const g = parseInt(hex.substring(2, 4), 16) / 255;
-  const b = parseInt(hex.substring(4, 6), 16) / 255;
-
-  // Find min and max values
-  const max = Math.max(r, g, b);
-  const min = Math.min(r, g, b);
-
-  // Calculate lightness
-  let l = (max + min) / 2;
-
-  // Calculate saturation
-  let s = 0;
-  if (max !== min) {
-    s = l > 0.5 ? (max - min) / (2 - max - min) : (max - min) / (max + min);
-  }
-
-  // Calculate hue
-  let h;
-  if (max === min) {
-    h = 0; // achromatic (no hue)
+  if (saturation == 0) {
+    r = g = b = lightness; // achromatic
   } else {
-    const delta = max - min;
-    switch (max) {
-      case r:
-        h = (g - b) / delta + (g < b ? 6 : 0);
-        break;
-      case g:
-        h = (b - r) / delta + 2;
-        break;
-      case b:
-        h = (r - g) / delta + 4;
-        break;
-    }
-    h /= 6;
+    const hue2rgb = function hue2rgb(p, q, t) {
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
+      if (t < 1 / 6) return p + (q - p) * 6 * t;
+      if (t < 1 / 2) return q;
+      if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+      return p;
+    };
+    const q =
+      lightness < 0.5
+        ? lightness * (1 + saturation)
+        : lightness + saturation - lightness * saturation;
+    const p = 2 * lightness - q;
+    r = hue2rgb(p, q, hue + 1 / 3);
+    g = hue2rgb(p, q, hue);
+    b = hue2rgb(p, q, hue - 1 / 3);
   }
 
-  return { h: h * 360, s: s * 100, l: l * 100 };
+  // Calculate the relative luminance
+  const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  console.log(luminance);
+
+  // Set the text color based on the luminance
+  document.documentElement.style.setProperty(
+    "--text-color",
+    luminance > 0.5 ? "#1a1a1a" : "#fcfcfc"
+  );
 }
 
-// Description: Rotates characters within paragraphs in a circular pattern
-// around the center of each paragraph, with rotation angles determined
-// by character position and paragraph index.
-const arcParagraphs = document.querySelectorAll(".arc-text");
-
-// When the window is fully loaded, execute this function
-window.onload = () => {
-  // Iterate over each <p> element
-  arcParagraphs.forEach((paragraph, index) => {
-    // Calculate the rotation angle increment based on the paragraph's position
-    const n = index + 1; // Add 1 to convert from zero-based index to one-based index
-
-    // Split the text content into individual characters and map them to span elements with rotated styles
-    paragraph.innerHTML = paragraph.innerText
-      .split("")
-      .map(
-        (char, i) =>
-          `<span style="transform:rotate(${i * (n * 5)}deg)">${char}</span>`
-      )
-      .join("");
-  });
-};
+window.onload = updateColor;

@@ -1,10 +1,5 @@
 @use "spacing" as *;
 
-$gap: 20vw;
-@include md {
-  $gap: 8vw;
-}
-
 /*******************************
 * General Styles
 *******************************/
@@ -12,8 +7,8 @@ body {
   min-height: 100vh;
 }
 .container {
-  padding-left: $space-m;
-  padding-right: $space-m;
+  padding-left: var(--space-s);
+  padding-right: var(--space-s);
   margin-left: auto;
   margin-right: auto;
   max-width: 1800px;
@@ -24,8 +19,8 @@ header {
   nav {
     display: flex;
     justify-content: space-between;
-    padding-top: $space-m;
-    padding-bottom: $space-m;
+    padding-top: var(--space-s);
+    padding-bottom: var(--space-s);
   }
   nav ul li {
     display: inline-block;
@@ -36,4 +31,6 @@ header {
   height: 100vh;
 }
 
-
+.hidden {
+  display: none !important;
+}

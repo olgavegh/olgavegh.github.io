@@ -1,33 +1,66 @@
 :root {
-  /* --dynamic-color: #55818a; */
-  --dynamic-color: #11272c;
-  --dynamic-color-light: color-mix(in srgb, var(--dynamic-color), white 40%);
-  --dynamic-color-lighter: color-mix(in srgb, var(--dynamic-color), white 75%);
-  --dynamic-color-dark: color-mix(in srgb, var(--dynamic-color), black 40%);
-  --dynamic-color-darker: color-mix(in srgb, var(--dynamic-color), black 75%);
-
-  --contrast-color: #d5dfe2;
-  --contrast-color-light: color-mix(in srgb, var(--contrast-color), white 40%);
-  --contrast-color-lighter: color-mix(
-    in srgb,
-    var(--contrast-color),
-    white 75%
-  );
-  --contrast-color-dark: color-mix(in srgb, var(--contrast-color), black 40%);
-  --contrast-color-darker: color-mix(in srgb, var(--contrast-color), black 75%);
+  --hue-color: 273;
+  --saturation-color: 99%;
+  --lightness-color: 52%;
+  --text-color: #fcfcfc;
+  --color-white: #fcfcfc;
 }
+
+$brand-color: hsl(
+  var(--hue-color),
+  var(--saturation-color),
+  var(--lightness-color)
+);
 
 body {
-  background-color: var(--siteBackgroundColor);
-  color: var(--paragraphMediumColor);
+  background-color: $brand-color;
+  color: var(--text-color); // Default text color
 }
+
 h1,
 h2 {
-  color: var(--dynamic-color);
+  color: var(--text-color);
+  opacity: 1;
 }
-#brand {
-  color: var(--dynamic-color);
-}
+
 a {
-  color: var(--dynamic-color);
+  color: yellow;
+}
+
+p {
+  color: var(--text-color);
+  opacity: 0.95;
+}
+
+.icon,
+svg {
+  fill: var(--text-color);
+  opacity: 0.9;
+}
+hr {
+  color: var(--text-color);
+  opacity: 0.7;
+}
+#slider-group {
+  background-color: hsl(var(--hue-color), 20%, 20%);
+}
+.slider {
+  input[type="range"] {
+    background-color: var(--color-white);
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    color: blue;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-white);
+  }
+
+  input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: $brand-color;
+  }
+
+  p {
+    color: var(--color-white);
+    opacity: 0.9;
+  }
 }
