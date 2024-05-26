@@ -27,7 +27,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--space-xs);
+  padding: $space-xs;
   text-align: center;
 }
 
@@ -86,32 +86,27 @@ a:hover::before {
 
 section {
   width: 100%;
-  padding-top: var(--space-xl);
-  padding-bottom: var(--space-xl);
-  &.hero {
-    padding-top: 0;
-    padding-bottom: 25vw;
-  }
+  padding-top: $space-l;
+  padding-bottom: $space-l;
 
   @include md {
     padding-left: 20%;
-
-    padding-top: var(--space-l);
-    padding-bottom: var(--space-l);
-    &.hero {
-      padding-bottom: var(--space-l);
-    }
-    &#footer {
-      padding-top: var(--space-m);
-      padding-bottom: var(--space-m);
-    }
+  }
+  &#footer {
+    padding-bottom: $space-s;
+  }
+}
+footer {
+  padding-bottom: $space-s;
+  @include md {
+    padding-left: 20%;
   }
 }
 
 .flex {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
+  gap: $space-m;
 
   > :not(:last-child) {
     width: 100%;
@@ -120,18 +115,20 @@ section {
 
   @include md {
     flex-direction: row;
-    gap: var(--space-l);
     > :not(:last-child) {
-      width: var(--space-l);
+      width: 8ch;
+    }
+    > :first-child {
+      width: $space-l;
     }
   }
 
   &:not(:last-child) {
-    margin-bottom: var(--space-l);
+    margin-bottom: $space-l;
   }
 
   + .flex {
-    margin-top: var(--space-xl);
+    margin-top: $space-xl;
   }
 }
 

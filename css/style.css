@@ -92,15 +92,6 @@ hr {
 /*******************************
 * Spacing Scales
 *******************************/
-:root {
-  --space-xs: clamp(0.5 * 1rem, 3.5vw, 0.5 * 3rem);
-  --space-s: clamp(1 * 1rem, 3.5vw, 1 * 3rem);
-  --space-m: clamp(1.5 * 1rem, 3.5vw, 1.5 * 3rem);
-  --space-l: clamp(2 * 1rem, 3.5vw, 2 * 3rem);
-  --space-xl: clamp(3 * 1rem, 3.5vw, 3 * 3rem);
-  --space-xxl: clamp(5 * 1rem, 3.5vw, 5 * 3rem);
-}
-
 /*******************************
 * General Styles
 *******************************/
@@ -109,8 +100,8 @@ body {
 }
 
 .container {
-  padding-left: var(--space-s);
-  padding-right: var(--space-s);
+  padding-left: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+  padding-right: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
   margin-left: auto;
   margin-right: auto;
   max-width: 1800px;
@@ -122,12 +113,12 @@ header {
 header nav {
   display: flex;
   justify-content: space-between;
-  padding-top: var(--space-s);
-  padding-bottom: var(--space-s);
+  padding-top: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+  padding-bottom: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
 }
 header nav ul li {
   display: inline-block;
-  margin-left: var(--space-xs);
+  margin-left: clamp(0.5rem, 0.1667rem + 1.6667vw, 1.5rem);
 }
 
 .full-height {
@@ -171,7 +162,7 @@ header {
 }
 
 h1 {
-  font-size: clamp(3.125rem, 2.0709rem + 5.2703vi, 8rem);
+  font-size: clamp(2.5rem, 1.3333rem + 5.8333vw, 6rem);
   line-height: 1.1;
   letter-spacing: -0.03em;
   font-style: bold;
@@ -188,7 +179,7 @@ h3 {
 }
 
 p {
-  font-size: clamp(1rem, 0.8919rem + 0.5405vi, 1.5rem); /* 1rem-1.5rem */
+  font-size: clamp(1rem, 0.9583rem + 0.2083vw, 1.125rem); /* 16px-18px */
   line-height: 1.8;
 }
 
@@ -215,15 +206,6 @@ h1 + p {
 /*******************************
 * Spacing Scales
 *******************************/
-:root {
-  --space-xs: clamp(0.5 * 1rem, 3.5vw, 0.5 * 3rem);
-  --space-s: clamp(1 * 1rem, 3.5vw, 1 * 3rem);
-  --space-m: clamp(1.5 * 1rem, 3.5vw, 1.5 * 3rem);
-  --space-l: clamp(2 * 1rem, 3.5vw, 2 * 3rem);
-  --space-xl: clamp(3 * 1rem, 3.5vw, 3 * 3rem);
-  --space-xxl: clamp(5 * 1rem, 3.5vw, 5 * 3rem);
-}
-
 @keyframes arcAnimation {
   0% {
     transform: rotate(0deg);
@@ -254,7 +236,7 @@ h1 + p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--space-xs);
+  padding: clamp(0.5rem, 0.1667rem + 1.6667vw, 1.5rem);
   text-align: center;
 }
 
@@ -314,32 +296,31 @@ a:hover::before {
 *******************************/
 section {
   width: 100%;
-  padding-top: var(--space-xl);
-  padding-bottom: var(--space-xl);
-}
-section.hero {
-  padding-top: 0;
-  padding-bottom: 25vw;
+  padding-top: clamp(3rem, 1rem + 10vw, 9rem);
+  padding-bottom: clamp(3rem, 1rem + 10vw, 9rem);
 }
 @media (min-width: 768px) {
   section {
     padding-left: 20%;
-    padding-top: var(--space-l);
-    padding-bottom: var(--space-l);
   }
-  section.hero {
-    padding-bottom: var(--space-l);
-  }
-  section#footer {
-    padding-top: var(--space-m);
-    padding-bottom: var(--space-m);
+}
+section#footer {
+  padding-bottom: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+}
+
+footer {
+  padding-bottom: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+}
+@media (min-width: 768px) {
+  footer {
+    padding-left: 20%;
   }
 }
 
 .flex {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
+  gap: clamp(2rem, 0.6667rem + 6.6667vw, 6rem);
 }
 .flex > :not(:last-child) {
   width: 100%;
@@ -348,17 +329,19 @@ section.hero {
 @media (min-width: 768px) {
   .flex {
     flex-direction: row;
-    gap: var(--space-l);
   }
   .flex > :not(:last-child) {
-    width: var(--space-l);
+    width: 8ch;
+  }
+  .flex > :first-child {
+    width: clamp(3rem, 1rem + 10vw, 9rem);
   }
 }
 .flex:not(:last-child) {
-  margin-bottom: var(--space-l);
+  margin-bottom: clamp(3rem, 1rem + 10vw, 9rem);
 }
 .flex + .flex {
-  margin-top: var(--space-xl);
+  margin-top: clamp(4rem, 1.3333rem + 13.3333vw, 12rem);
 }
 
 hr {

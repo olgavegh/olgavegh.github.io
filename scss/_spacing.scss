@@ -52,32 +52,15 @@ $breakpoints: (
 * Spacing Scales
 *******************************/
 
-// $spacing-scales: (
-//   "xs": 0.5,
-//   "s": 1,
-//   "m": 1.5,
-//   "l": 2,
-//   "xl": 3,
-//   "xxl": 5,
-// );
-
-$spacing-scales: (
-  "xs": 0.5,
-  "s": 1,
-  "m": 1.5,
-  "l": 2,
-  "xl": 3,
-  "xxl": 5,
-);
-
-:root {
-  @each $level, $value in $spacing-scales {
-    --space-#{$level}: clamp(#{$value} * 1rem, 3.5vw, #{$value} * 3rem);
-  }
-}
-// 1.25rem-3.5rem
-// $space-m: clamp(1.45rem, 2.2162vw + 1.0068rem, 3.5rem);
-// $space-s: 2vw;
-// $space-m: 4vw;
-// $space-l: 8vw;
-// $space-xl: 15vw;
+// 8px - 24px
+$space-xs: clamp(0.5rem, 0.1667rem + 1.6667vw, 1.5rem);
+// 16px - 48px
+$space-s: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+// 32px - 96px
+$space-m: clamp(2rem, 0.6667rem + 6.6667vw, 6rem);
+// 48px - 144px
+$space-l: clamp(3rem, 1rem + 10vw, 9rem);
+// 64px - 192px
+$space-xl: clamp(4rem, 1.3333rem + 13.3333vw, 12rem);
+// 80px - 240px
+$space-xxl: clamp(5rem, 1.6667rem + 16.6667vw, 15rem);

@@ -35,19 +35,11 @@ header {
 }
 
 h1 {
-  // font-size: 3.1rem;
-  font-size: clamp(3.125rem, 2.0709rem + 5.2703vi, 8rem);
+  font-size: clamp(2.5rem, 1.3333rem + 5.8333vw, 6rem);
   line-height: 1.1;
   letter-spacing: -0.03em;
   font-style: bold;
 }
-// @media screen and (min-width: 768px),
-//   screen and (max-width: calc(1943px)) and (orientation: landscape) {
-//   h1 {
-//     font-size: calc(6vw + 1rem);
-//     line-height: 1.12em;
-//   }
-// }
 
 h2 {
   font-size: 2rem;
@@ -58,7 +50,7 @@ h3 {
   line-height: 1;
 }
 p {
-  font-size: clamp(1rem, 0.8919rem + 0.5405vi, 1.5rem); /* 1rem-1.5rem */
+  font-size: clamp(1rem, 0.9583rem + 0.2083vw, 1.125rem); /* 16px-18px */
   line-height: 1.8;
 }
 ul {
