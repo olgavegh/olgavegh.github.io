@@ -2,7 +2,6 @@
 * Reset
 *******************************/
 @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,600;1,300&family=Romanesco&family=Rosarivo:ital@0;1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 *,
 *:before,
 *:after {
@@ -53,6 +52,12 @@ a {
 p {
   color: var(--text-color);
   opacity: 0.95;
+}
+
+.tag {
+  background-color: var(--text-color);
+  opacity: 0.9;
+  color: hsl(var(--hue-color), var(--saturation-color), var(--lightness-color));
 }
 
 .icon,
@@ -129,6 +134,17 @@ header nav ul li {
   display: none !important;
 }
 
+p + p {
+  margin-top: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+}
+
+.project-item > div {
+  margin-top: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+}
+.project-item h1 {
+  margin-bottom: clamp(2rem, 0.6667rem + 6.6667vw, 6rem);
+}
+
 @font-face {
   font-family: "Metropolis";
   font-style: bolder;
@@ -161,6 +177,13 @@ header {
   line-height: 24px;
 }
 
+#brand {
+  font-size: calc(1rem + 1vw);
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
 h1 {
   font-size: clamp(2.5rem, 1.3333rem + 5.8333vw, 6rem);
   line-height: 1.1;
@@ -169,13 +192,20 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
-  line-height: 1;
+  font-family: "Inter Tight", sans-serif;
+  font-size: clamp(1.25rem, 1rem + 1.25vw, 2rem);
+  line-height: 1.4;
+  font-weight: 300;
+  max-width: 50ch;
+  text-wrap: balance;
 }
 
 h3 {
-  font-size: 1.2rem;
-  line-height: 1;
+  font-size: clamp(1rem, 0.9167rem + 0.4167vw, 1.25rem);
+  line-height: inherit;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 p {
@@ -192,12 +222,13 @@ small {
   font-size: 0.8rem;
 }
 
-p + p {
-  margin-top: 1rem;
-}
-
-h1 + p {
-  margin-top: 3rem;
+.tag {
+  font-family: "Inter Tight", sans-serif;
+  font-size: clamp(0.625rem, 0.5833rem + 0.2083vw, 0.75rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
 }
 
 /*******************************
@@ -214,21 +245,9 @@ h1 + p {
     transform: rotate(360deg);
   }
 }
-/* debug */
-* {
-  border: 1px dotted blue;
-}
-
 /*******************************
 * Header and navigation
 *******************************/
-#brand {
-  font-size: calc(1rem + 1vw);
-  font-weight: bold;
-  line-height: 1;
-  letter-spacing: -0.03em;
-}
-
 #wrap-social {
   position: fixed;
   right: 0;
@@ -317,6 +336,14 @@ footer {
   }
 }
 
+h2:first-child {
+  margin-bottom: clamp(2rem, 0.6667rem + 6.6667vw, 6rem);
+}
+
+h1 + h2 {
+  margin-top: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+}
+
 .flex {
   display: flex;
   flex-direction: column;
@@ -331,7 +358,7 @@ footer {
     flex-direction: row;
   }
   .flex > :not(:last-child) {
-    width: 8ch;
+    width: 10ch;
   }
   .flex > :first-child {
     width: clamp(3rem, 1rem + 10vw, 9rem);
@@ -346,16 +373,14 @@ footer {
 
 hr {
   height: 1px;
+  position: relative;
+  top: 0.8rem;
 }
 
 #footer svg {
   display: inline-block;
   width: 60px;
   height: 60px;
-}
-
-.project-item {
-  margin-top: 2rem;
 }
 
 /*******************************
@@ -395,6 +420,16 @@ hr {
 }
 .slider p:not(:first-child) {
   width: 3ch;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.5em 1.5em;
+  margin: 0.5em;
+  border-radius: 4px;
+}
+.tag:first-child {
+  margin-left: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

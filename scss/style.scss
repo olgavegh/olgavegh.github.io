@@ -5,20 +5,14 @@
 @import "spacing";
 @import "animation";
 
-/* debug */
-* {
-  border: 1px dotted blue;
-}
+// /* debug */
+// * {
+//   border: 1px dotted blue;
+// }
 
 /*******************************
 * Header and navigation
 *******************************/
-#brand {
-  font-size: calc(1rem + 1vw);
-  font-weight: bold;
-  line-height: 1;
-  letter-spacing: -0.03em;
-}
 
 #wrap-social {
   position: fixed;
@@ -103,6 +97,14 @@ footer {
   }
 }
 
+h2:first-child {
+  margin-bottom: $space-m;
+}
+
+h1 + h2 {
+  margin-top: $space-s;
+}
+
 .flex {
   display: flex;
   flex-direction: column;
@@ -116,7 +118,7 @@ footer {
   @include md {
     flex-direction: row;
     > :not(:last-child) {
-      width: 8ch;
+      width: 10ch;
     }
     > :first-child {
       width: $space-l;
@@ -134,16 +136,14 @@ footer {
 
 hr {
   height: 1px;
+  position: relative;
+  top: 0.8rem;
 }
 
 #footer svg {
   display: inline-block;
   width: 60px;
   height: 60px;
-}
-
-.project-item {
-  margin-top: 2rem;
 }
 
 /*******************************
@@ -184,5 +184,16 @@ hr {
   }
   p:not(:first-child) {
     width: 3ch;
+  }
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.5em 1.5em;
+  margin: 0.5em;
+  border-radius: 4px;
+
+  &:first-child {
+    margin-left: 0;
   }
 }

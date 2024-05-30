@@ -34,3 +34,16 @@ header {
 .hidden {
   display: none !important;
 }
+
+p + p {
+  margin-top: $space-s;
+}
+
+.project-item {
+  > div {
+    margin-top: $space-s;
+  }
+  h1 {
+    margin-bottom: $space-m;
+  }
+}
