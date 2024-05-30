@@ -149,12 +149,13 @@ hr {
 /*******************************
 * Color Shift
 *******************************/
-#slider-group {
-  padding: 1em;
+.project-frame {
   border-radius: 0.5em;
   width: 80%;
 }
-
+#slider-group {
+  padding: 1.2em;
+}
 .slider {
   position: relative;
   display: flex;

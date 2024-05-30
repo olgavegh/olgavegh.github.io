@@ -145,6 +145,11 @@ p + p {
   margin-bottom: clamp(2rem, 0.6667rem + 6.6667vw, 6rem);
 }
 
+img {
+  width: 100%;
+  border-radius: 8px;
+}
+
 @font-face {
   font-family: "Metropolis";
   font-style: bolder;
@@ -386,10 +391,13 @@ hr {
 /*******************************
 * Color Shift
 *******************************/
-#slider-group {
-  padding: 1em;
+.project-frame {
   border-radius: 0.5em;
   width: 80%;
+}
+
+#slider-group {
+  padding: 1.2em;
 }
 
 .slider {
