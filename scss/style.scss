@@ -190,11 +190,6 @@ hr {
 
 .tag {
   display: inline-block;
-  padding: 0.5em 1.5em;
-  margin: 0.5em;
-  border-radius: 4px;
-
-  &:first-child {
-    margin-left: 0;
-  }
+  margin-right: 1em;
+  margin-bottom: 1em;
 }

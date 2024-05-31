@@ -49,15 +49,10 @@ a {
   color: yellow;
 }
 
-p {
+p,
+.tag {
   color: var(--text-color);
   opacity: 0.95;
-}
-
-.tag {
-  background-color: var(--text-color);
-  opacity: 0.9;
-  color: hsl(var(--hue-color), var(--saturation-color), var(--lightness-color));
 }
 
 .icon,
@@ -134,8 +129,16 @@ header nav ul li {
   display: none !important;
 }
 
+h2 {
+  margin-bottom: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+}
+
 p + p {
   margin-top: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+}
+
+.tag-cloud {
+  margin-top: clamp(0.5rem, 0.1667rem + 1.6667vw, 1.5rem);
 }
 
 .project-item > div {
@@ -216,6 +219,7 @@ h3 {
 p {
   font-size: clamp(1rem, 0.9583rem + 0.2083vw, 1.125rem); /* 16px-18px */
   line-height: 1.8;
+  text-wrap: balance;
 }
 
 ul {
@@ -229,11 +233,10 @@ small {
 
 .tag {
   font-family: "Inter Tight", sans-serif;
-  font-size: clamp(0.625rem, 0.5833rem + 0.2083vw, 0.75rem);
-  font-weight: 600;
+  font-size: clamp(0.75rem, 0.6667rem + 0.4167vw, 1rem);
+  font-weight: 300;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-decoration: none;
+  letter-spacing: 0.2em;
 }
 
 /*******************************
@@ -432,12 +435,8 @@ hr {
 
 .tag {
   display: inline-block;
-  padding: 0.5em 1.5em;
-  margin: 0.5em;
-  border-radius: 4px;
-}
-.tag:first-child {
-  margin-left: 0;
+  margin-right: 1em;
+  margin-bottom: 1em;
 }
 
 /*# sourceMappingURL=style.css.map */

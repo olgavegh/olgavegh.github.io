@@ -66,6 +66,7 @@ h3 {
 p {
   font-size: clamp(1rem, 0.9583rem + 0.2083vw, 1.125rem); /* 16px-18px */
   line-height: 1.8;
+  text-wrap: balance;
 }
 ul {
   font-size: 1rem;
@@ -77,9 +78,8 @@ small {
 
 .tag {
   font-family: "Inter Tight", sans-serif;
-  font-size: clamp(0.625rem, 0.5833rem + 0.2083vw, 0.75rem);
-  font-weight: 600;
+  font-size: clamp(0.75rem, 0.6667rem + 0.4167vw, 1rem);
+  font-weight: 300;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-decoration: none;
+  letter-spacing: 0.2em;
 }

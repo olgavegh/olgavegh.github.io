@@ -34,11 +34,16 @@ header {
 .hidden {
   display: none !important;
 }
+h2 {
+  margin-bottom: $space-s;
+}
 
 p + p {
   margin-top: $space-s;
 }
-
+.tag-cloud {
+  margin-top: $space-xs;
+}
 .project-item {
   > div {
     margin-top: $space-s;
@@ -47,6 +52,7 @@ p + p {
     margin-bottom: $space-m;
   }
 }
+
 img {
   width: 100%;
   border-radius: 8px;

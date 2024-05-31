@@ -27,14 +27,10 @@ a {
   color: yellow;
 }
 
-p {
+p,
+.tag {
   color: var(--text-color);
   opacity: 0.95;
-}
-.tag {
-  background-color: var(--text-color);
-  opacity: 0.9;
-  color: $brand-color;
 }
 
 .icon,
