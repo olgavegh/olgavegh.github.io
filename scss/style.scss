@@ -33,45 +33,13 @@
   text-orientation: mixed; /*Rotate text correctly */
   transform: rotateZ(180deg);
 }
-a {
+nav a,
+#wrap-social a {
   text-decoration: none;
-  transition: color 0.3s ease-in-out;
-  position: relative;
-
-  cursor: pointer;
-}
-
-/* Hover underline animations */
-a:hover {
-  color: var(--dynamic-color-darker);
-}
-a::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: var(--dynamic-color-darker);
-  visibility: hidden;
-  transition: transform 0.25s ease-out;
-
-  /* horizontal */
-  width: 100%;
-  height: 0.05em;
-  transform: scaleX(0);
-  transform-origin: bottom left;
-}
-.vertical a::before {
-  width: 0.05em;
-  height: 100%;
-  transform: scaleY(0);
-  transform-origin: top right;
-}
-a:hover::before {
-  visibility: visible;
-  transform: scaleX(1);
-}
-.vertical > a:hover::before {
-  transform: scaleY(1);
+  transition: all 1s ease-in-out;
+  &:hover {
+    text-decoration: overline;
+  }
 }
 
 /*******************************
@@ -191,5 +159,4 @@ hr {
 .tag {
   display: inline-block;
   margin-right: 1em;
-  margin-bottom: 1em;
 }

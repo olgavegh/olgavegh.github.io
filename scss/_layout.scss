@@ -1,4 +1,5 @@
 @use "spacing" as *;
+@use "animation" as *;
 
 /*******************************
 * General Styles
@@ -34,26 +35,127 @@ header {
 .hidden {
   display: none !important;
 }
-h2 {
+h1:not(:first-child) {
+  margin-top: $space-l;
+}
+
+h1:not(:last-child) {
+  margin-bottom: $space-s;
+}
+h2:not(:last-child) {
   margin-bottom: $space-s;
 }
 
-p + p {
-  margin-top: $space-s;
+p:not(:last-child) {
+  margin-bottom: $space-s;
 }
-.tag-cloud {
-  margin-top: $space-xs;
-}
-.project-item {
-  > div {
-    margin-top: $space-s;
+
+/*******************************
+* Selected Works
+*******************************/
+
+.works,
+.experiments {
+  .work,
+  .experiment {
+    & * {
+      transition: all 0.3s ease-in-out;
+    }
+    & .item {
+      transition: all 1s ease-in-out;
+      padding: $space-xs 0;
+      display: block;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--text-color);
+      border-bottom: 1px solid var(--text-color);
+      margin-top: -1px;
+      display: flex;
+      align-items: flex-start;
+
+      .overlay {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--text-color);
+        mix-blend-mode: difference;
+        transform-origin: 100% 0%;
+        transform: scaleY(0);
+        pointer-events: none;
+      }
+
+      details {
+        margin: 0 $space-xs;
+
+        summary {
+          margin: $space-xs 0;
+          margin-left: calc($space-xs * -1);
+        }
+      }
+
+      &:hover {
+        .overlay {
+          transform: scaleY(1);
+        }
+        summary {
+          transform: translateX($space-xs) !important;
+        }
+      }
+    }
+
+    & img {
+      width: $space-l;
+      height: calc($space-l/3 * 2);
+      margin-right: $space-xs;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    & a {
+      line-height: 1;
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+      padding: $space-xs;
+      & svg {
+        width: $space-s;
+        height: $space-s;
+      }
+    }
   }
-  h1 {
-    margin-bottom: $space-m;
+  .experiment img {
+    width: $space-m;
+    height: $space-m;
   }
 }
 
-img {
+details {
   width: 100%;
-  border-radius: 8px;
+  z-index: 2;
+
+  summary {
+    width: 100%;
+    position: relative;
+
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+}
+
+details[open] summary ~ * {
+  animation: fade-in 0.6s ease-in-out;
+}
+
+/*******************************
+* Cursor
+*******************************/
+a,
+details {
+  cursor: pointer;
 }

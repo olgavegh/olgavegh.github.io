@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,600;1,300&family=Romanesco&family=Rosarivo:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap");
 
 @font-face {
   font-family: "Metropolis";
@@ -46,13 +46,12 @@ h1 {
   font-style: bold;
 }
 
-h2 {
+h2,
+summary {
   font-family: "Inter Tight", sans-serif;
   font-size: clamp(1.25rem, 1rem + 1.25vw, 2rem);
   line-height: 1.4;
   font-weight: 300;
-
-  max-width: 50ch;
   text-wrap: balance;
 }
 
@@ -67,6 +66,7 @@ p {
   font-size: clamp(1rem, 0.9583rem + 0.2083vw, 1.125rem); /* 16px-18px */
   line-height: 1.8;
   text-wrap: balance;
+  max-width: 80ch;
 }
 ul {
   font-size: 1rem;
@@ -82,4 +82,13 @@ small {
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.2em;
+}
+
+a {
+  text-decoration: none;
+}
+summary > em {
+  font-weight: 100;
+  font-size: 70%;
+  font-style: normal;
 }

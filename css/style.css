@@ -1,7 +1,7 @@
 /*******************************
 * Reset
 *******************************/
-@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,600;1,300&family=Romanesco&family=Rosarivo:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap");
 *,
 *:before,
 *:after {
@@ -92,6 +92,14 @@ hr {
 /*******************************
 * Spacing Scales
 *******************************/
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 /*******************************
 * General Styles
 *******************************/
@@ -118,7 +126,7 @@ header nav {
 }
 header nav ul li {
   display: inline-block;
-  margin-left: clamp(0.5rem, 0.1667rem + 1.6667vw, 1.5rem);
+  margin-left: clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem);
 }
 
 .full-height {
@@ -129,28 +137,143 @@ header nav ul li {
   display: none !important;
 }
 
-h2 {
+h1:not(:first-child) {
+  margin-top: clamp(3rem, 1rem + 10vw, 9rem);
+}
+
+h1:not(:last-child) {
   margin-bottom: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
 }
 
-p + p {
-  margin-top: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+h2:not(:last-child) {
+  margin-bottom: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
 }
 
-.tag-cloud {
-  margin-top: clamp(0.5rem, 0.1667rem + 1.6667vw, 1.5rem);
+p:not(:last-child) {
+  margin-bottom: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
 }
 
-.project-item > div {
-  margin-top: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+/*******************************
+* Selected Works
+*******************************/
+.works .work *,
+.works .experiment *,
+.experiments .work *,
+.experiments .experiment * {
+  transition: all 0.3s ease-in-out;
 }
-.project-item h1 {
-  margin-bottom: clamp(2rem, 0.6667rem + 6.6667vw, 6rem);
+.works .work .item,
+.works .experiment .item,
+.experiments .work .item,
+.experiments .experiment .item {
+  transition: all 1s ease-in-out;
+  padding: clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem) 0;
+  display: block;
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--text-color);
+  border-bottom: 1px solid var(--text-color);
+  margin-top: -1px;
+  display: flex;
+  align-items: flex-start;
 }
-
-img {
+.works .work .item .overlay,
+.works .experiment .item .overlay,
+.experiments .work .item .overlay,
+.experiments .experiment .item .overlay {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
   width: 100%;
-  border-radius: 8px;
+  height: 100%;
+  background: var(--text-color);
+  mix-blend-mode: difference;
+  transform-origin: 100% 0%;
+  transform: scaleY(0);
+  pointer-events: none;
+}
+.works .work .item details,
+.works .experiment .item details,
+.experiments .work .item details,
+.experiments .experiment .item details {
+  margin: 0 clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem);
+}
+.works .work .item details summary,
+.works .experiment .item details summary,
+.experiments .work .item details summary,
+.experiments .experiment .item details summary {
+  margin: clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem) 0;
+  margin-left: calc(clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem) * -1);
+}
+.works .work .item:hover .overlay,
+.works .experiment .item:hover .overlay,
+.experiments .work .item:hover .overlay,
+.experiments .experiment .item:hover .overlay {
+  transform: scaleY(1);
+}
+.works .work .item:hover summary,
+.works .experiment .item:hover summary,
+.experiments .work .item:hover summary,
+.experiments .experiment .item:hover summary {
+  transform: translateX(clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem)) !important;
+}
+.works .work img,
+.works .experiment img,
+.experiments .work img,
+.experiments .experiment img {
+  width: clamp(3rem, 1rem + 10vw, 9rem);
+  height: calc(clamp(3rem, 1rem + 10vw, 9rem) / 3 * 2);
+  margin-right: clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem);
+  object-fit: cover;
+  object-position: top;
+}
+.works .work a,
+.works .experiment a,
+.experiments .work a,
+.experiments .experiment a {
+  line-height: 1;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  padding: clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem);
+}
+.works .work a svg,
+.works .experiment a svg,
+.experiments .work a svg,
+.experiments .experiment a svg {
+  width: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+  height: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+}
+.works .experiment img,
+.experiments .experiment img {
+  width: clamp(2rem, 0.6667rem + 6.6667vw, 6rem);
+  height: clamp(2rem, 0.6667rem + 6.6667vw, 6rem);
+}
+
+details {
+  width: 100%;
+  z-index: 2;
+}
+details summary {
+  width: 100%;
+  position: relative;
+  list-style: none;
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] summary ~ * {
+  animation: fade-in 0.6s ease-in-out;
+}
+
+/*******************************
+* Cursor
+*******************************/
+a,
+details {
+  cursor: pointer;
 }
 
 @font-face {
@@ -199,12 +322,12 @@ h1 {
   font-style: bold;
 }
 
-h2 {
+h2,
+summary {
   font-family: "Inter Tight", sans-serif;
   font-size: clamp(1.25rem, 1rem + 1.25vw, 2rem);
   line-height: 1.4;
   font-weight: 300;
-  max-width: 50ch;
   text-wrap: balance;
 }
 
@@ -220,6 +343,7 @@ p {
   font-size: clamp(1rem, 0.9583rem + 0.2083vw, 1.125rem); /* 16px-18px */
   line-height: 1.8;
   text-wrap: balance;
+  max-width: 80ch;
 }
 
 ul {
@@ -239,18 +363,28 @@ small {
   letter-spacing: 0.2em;
 }
 
+a {
+  text-decoration: none;
+}
+
+summary > em {
+  font-weight: 100;
+  font-size: 70%;
+  font-style: normal;
+}
+
 /*******************************
 * Breakpoints
 *******************************/
 /*******************************
 * Spacing Scales
 *******************************/
-@keyframes arcAnimation {
+@keyframes fade-in {
   0% {
-    transform: rotate(0deg);
+    opacity: 0;
   }
   100% {
-    transform: rotate(360deg);
+    opacity: 1;
   }
 }
 /*******************************
@@ -263,7 +397,7 @@ small {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(0.5rem, 0.1667rem + 1.6667vw, 1.5rem);
+  padding: clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem);
   text-align: center;
 }
 
@@ -275,47 +409,14 @@ small {
   transform: rotateZ(180deg);
 }
 
-a {
+nav a,
+#wrap-social a {
   text-decoration: none;
-  transition: color 0.3s ease-in-out;
-  position: relative;
-  cursor: pointer;
+  transition: all 1s ease-in-out;
 }
-
-/* Hover underline animations */
-a:hover {
-  color: var(--dynamic-color-darker);
-}
-
-a::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: var(--dynamic-color-darker);
-  visibility: hidden;
-  transition: transform 0.25s ease-out;
-  /* horizontal */
-  width: 100%;
-  height: 0.05em;
-  transform: scaleX(0);
-  transform-origin: bottom left;
-}
-
-.vertical a::before {
-  width: 0.05em;
-  height: 100%;
-  transform: scaleY(0);
-  transform-origin: top right;
-}
-
-a:hover::before {
-  visibility: visible;
-  transform: scaleX(1);
-}
-
-.vertical > a:hover::before {
-  transform: scaleY(1);
+nav a:hover,
+#wrap-social a:hover {
+  text-decoration: overline;
 }
 
 /*******************************
@@ -436,7 +537,6 @@ hr {
 .tag {
   display: inline-block;
   margin-right: 1em;
-  margin-bottom: 1em;
 }
 
 /*# sourceMappingURL=style.css.map */
