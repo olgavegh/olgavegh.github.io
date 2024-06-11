@@ -1,0 +1,88 @@
+@use "color";
+
+#slider-group {
+  padding: 1.2em;
+  --bg-color: hsl(var(--hue-color), 20%, 20%);
+  background-color: var(--bg-color);
+}
+
+.slider {
+  display: flex;
+  color: red;
+  * {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+
+  input[type="range"] {
+    flex-grow: 1;
+
+    --track-height: 0.15em;
+    --thumb-height: 1.375em;
+    --thumb-width: 0.5em;
+    --thumb-color: #3399ff;
+    --hover-color: #00ffff;
+
+    /* remove default styles */
+    -webkit-appearance: none;
+    outline: none;
+    background: transparent;
+
+    /* === Track Styles === */
+    &::-webkit-slider-runnable-track {
+      background: var(--thumb-color);
+      height: var(--track-height);
+    }
+
+    /* === Thumb Styles === */
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: var(--thumb-width);
+      height: var(--thumb-height);
+      background-color: var(--thumb-color);
+      margin-top: calc((var(--track-height) / 2) - (var(--thumb-height) / 2));
+      border-radius: var(--thumb-height); // firefox is a bit different
+      border: none;
+    }
+    &::-moz-range-thumb {
+      appearance: none;
+      width: var(--thumb-width);
+      height: var(--thumb-height);
+      background-color: var(--thumb-color);
+      margin-top: calc((var(--track-height) / 2) - (var(--thumb-height) / 2));
+      border-radius: var(--thumb-height); // firefox is a bit different
+      border: none;
+    }
+
+    /* === Focus Styles === */
+    cursor: pointer;
+
+    &:hover::-webkit-slider-thumb {
+      box-shadow: 0px 0px 0px 16px $color-shadow-hover;
+      cursor: grab;
+    }
+    &:focus::-webkit-slider-thumb {
+      box-shadow: 0px 0px 0px 16px $color-shadow-focus;
+      cursor: grabbing;
+    }
+
+    &:hover::-moz-range-thumb {
+      box-shadow: 0px 0px 0px 16px $color-shadow-hover;
+      cursor: grab;
+    }
+    &:focus::-moz-range-thumb {
+      box-shadow: 0px 0px 0px 16px $color-shadow-focus;
+      cursor: grabbing;
+    }
+  }
+
+  p {
+    color: var(--color-white);
+    margin: 0 0.5em;
+
+    &:not(:first-child) {
+      width: 3ch;
+    }
+  }
+}
