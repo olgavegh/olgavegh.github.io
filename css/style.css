@@ -56,7 +56,8 @@ p,
 }
 
 .icon,
-svg {
+svg,
+.bx {
   color: var(--text-color);
   fill: var(--text-color);
   opacity: 0.9;
@@ -96,7 +97,7 @@ body {
 
 .container {
   padding-left: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
-  padding-right: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+  padding-right: clamp(2rem, 0.6667rem + 6.6667vw, 6rem);
   margin-left: auto;
   margin-right: auto;
   max-width: 1800px;
@@ -138,6 +139,11 @@ h2:not(:last-child) {
 
 p:not(:last-child) {
   margin-bottom: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+}
+
+.tag {
+  display: inline-block;
+  margin-right: 1em;
 }
 
 /*******************************
@@ -263,9 +269,6 @@ details {
   cursor: pointer;
 }
 
-/*******************************
-* Icon
-*******************************/
 @font-face {
   font-family: "Metropolis";
   font-style: bolder;
@@ -412,7 +415,8 @@ p,
 }
 
 .icon,
-svg {
+svg,
+.bx {
   color: var(--text-color);
   fill: var(--text-color);
   opacity: 0.9;
@@ -429,6 +433,7 @@ hr {
   fill: yellow;
 }
 
+/* ============== SLIDER ============== */
 #slider-group {
   padding: 1.2em;
   --bg-color: hsl(var(--hue-color), 20%, 20%);
@@ -437,7 +442,6 @@ hr {
 
 .slider {
   display: flex;
-  color: red;
 }
 .slider * {
   justify-content: center;
@@ -446,6 +450,7 @@ hr {
 }
 .slider input[type=range] {
   flex-grow: 1;
+  margin: 0 1em;
   --track-height: 0.15em;
   --thumb-height: 1.375em;
   --thumb-width: 0.5em;
@@ -500,10 +505,19 @@ hr {
 }
 .slider p {
   color: var(--color-white);
-  margin: 0 0.5em;
+  margin: 0;
 }
 .slider p:not(:first-child) {
   width: 3ch;
+}
+
+/* ============== ICONS ============== */
+/* footer icons */
+.bx {
+  display: inline-block;
+  margin-right: clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem);
+  font-size: 2rem;
+  color: inherit;
 }
 
 /*******************************
@@ -511,8 +525,9 @@ hr {
 *******************************/
 #wrap-social {
   position: fixed;
+  top: 0;
   right: 0;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -521,7 +536,7 @@ hr {
 }
 
 #wrap-social li {
-  margin-bottom: 1rem;
+  margin-bottom: 2em;
   text-transform: uppercase;
   writing-mode: vertical-lr; /* Vertical text */
   text-orientation: mixed; /*Rotate text correctly */
@@ -605,10 +620,19 @@ hr {
   top: 0.8rem;
 }
 
-#footer svg {
+/* footer icons */
+footer i {
   display: inline-block;
-  width: 60px;
-  height: 60px;
+  margin-right: clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem);
+  transition: all 0.3s ease-in-out;
+}
+footer i:hover {
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 16px rgba(0, 0, 0, 0.1);
+}
+footer i:active {
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 16px rgba(0, 0, 0, 0.3);
 }
 
 /*******************************
@@ -618,21 +642,11 @@ hr {
   border-radius: 0.5em;
   width: 80%;
 }
-
-.tag {
-  display: inline-block;
-  margin-right: 1em;
-}
-
-.icon-parent {
-  position: relative;
-}
-
-#arrow {
-  max-height: 2rem;
-  position: absolute;
-  top: 2rem;
-  left: 70px;
+.project-frame .desc-hint {
+  text-align: right;
+  font-size: 0.9em;
+  opacity: 0.6;
+  color: var(--color-white);
 }
 
 /*# sourceMappingURL=style.css.map */

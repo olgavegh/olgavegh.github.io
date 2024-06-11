@@ -1,5 +1,7 @@
 @use "color";
 
+/* ============== SLIDER ============== */
+
 #slider-group {
   padding: 1.2em;
   --bg-color: hsl(var(--hue-color), 20%, 20%);
@@ -8,7 +10,6 @@
 
 .slider {
   display: flex;
-  color: red;
   * {
     justify-content: center;
     align-items: center;
@@ -17,6 +18,7 @@
 
   input[type="range"] {
     flex-grow: 1;
+    margin: 0 1em;
 
     --track-height: 0.15em;
     --thumb-height: 1.375em;
@@ -79,10 +81,20 @@
 
   p {
     color: var(--color-white);
-    margin: 0 0.5em;
+    margin: 0;
 
     &:not(:first-child) {
       width: 3ch;
     }
   }
+}
+
+/* ============== ICONS ============== */
+
+/* footer icons */
+.bx {
+  display: inline-block;
+  margin-right: $space-xs;
+  font-size: 2rem;
+  color: inherit;
 }
