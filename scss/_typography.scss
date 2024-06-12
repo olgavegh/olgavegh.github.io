@@ -84,8 +84,8 @@ small {
   letter-spacing: 0.2em;
 }
 
-a {
-  text-decoration: none;
+a:not(.icon) {
+  text-decoration: underline;
 }
 summary > em {
   font-weight: 100;

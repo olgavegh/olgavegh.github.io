@@ -48,6 +48,10 @@ h2 {
 a {
   color: yellow;
 }
+a.icon {
+  fill: yellow;
+  opacity: 0.9;
+}
 
 p,
 .tag {
@@ -55,23 +59,9 @@ p,
   opacity: 0.95;
 }
 
-.icon,
-svg,
-.bx {
-  color: var(--text-color);
-  fill: var(--text-color);
-  opacity: 0.9;
-}
-
 hr {
   color: var(--text-color);
   opacity: 0.7;
-}
-
-#colorshift p,
-#arrow {
-  color: yellow;
-  fill: yellow;
 }
 
 /*******************************
@@ -356,8 +346,8 @@ small {
   letter-spacing: 0.2em;
 }
 
-a {
-  text-decoration: none;
+a:not(.icon) {
+  text-decoration: underline;
 }
 
 summary > em {
@@ -408,29 +398,20 @@ a {
   color: yellow;
 }
 
+a.icon {
+  fill: yellow;
+  opacity: 0.9;
+}
+
 p,
 .tag {
   color: var(--text-color);
   opacity: 0.95;
 }
 
-.icon,
-svg,
-.bx {
-  color: var(--text-color);
-  fill: var(--text-color);
-  opacity: 0.9;
-}
-
 hr {
   color: var(--text-color);
   opacity: 0.7;
-}
-
-#colorshift p,
-#arrow {
-  color: yellow;
-  fill: yellow;
 }
 
 /* ============== SLIDER ============== */
@@ -549,12 +530,12 @@ hr {
 
 nav a,
 #wrap-social a {
-  text-decoration: none;
+  text-decoration: none !important;
   transition: all 1s ease-in-out;
 }
 nav a:hover,
 #wrap-social a:hover {
-  text-decoration: overline;
+  text-decoration: overline !important;
 }
 
 /*******************************

@@ -32,10 +32,10 @@
 }
 nav a,
 #wrap-social a {
-  text-decoration: none;
+  text-decoration: none !important;
   transition: all 1s ease-in-out;
   &:hover {
-    text-decoration: overline;
+    text-decoration: overline !important;
   }
 }
 
