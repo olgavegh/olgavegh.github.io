@@ -93,10 +93,30 @@
 }
 
 /* ============== ICONS ============== */
+/* work items icons */
+$icon-size: clamp(2rem, 1.6667rem + 1.6667vw, 3rem);
+
+.icon svg {
+  width: $icon-size;
+  height: $icon-size;
+}
 
 /* footer icons */
-.bx {
+a.icon {
   display: inline-block;
-  font-size: 2rem;
-  color: inherit;
+  font-size: $icon-size;
+  color: yellow;
+
+  i {
+    transition: all 0.3s ease-in-out;
+  }
+
+  i:hover {
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 16px $color-shadow-hover;
+  }
+  i:active {
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 16px $color-shadow-focus;
+  }
 }

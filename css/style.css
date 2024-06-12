@@ -137,6 +137,111 @@ p:not(:last-child) {
 }
 
 /*******************************
+* Header and navigation
+*******************************/
+#wrap-social {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem);
+  text-align: center;
+}
+
+#wrap-social li {
+  margin-bottom: 2em;
+  text-transform: uppercase;
+  writing-mode: vertical-lr; /* Vertical text */
+  text-orientation: mixed; /*Rotate text correctly */
+  transform: rotateZ(180deg);
+}
+
+nav a,
+#wrap-social a {
+  text-decoration: none !important;
+  transition: all 1s ease-in-out;
+}
+nav a:hover,
+#wrap-social a:hover {
+  text-decoration: overline !important;
+}
+
+/*******************************
+* Structure
+*******************************/
+section {
+  width: 100%;
+  padding-top: clamp(3rem, 1rem + 10vw, 9rem);
+  padding-bottom: clamp(3rem, 1rem + 10vw, 9rem);
+}
+@media (min-width: 768px) {
+  section {
+    padding-left: 20%;
+  }
+}
+section#footer {
+  padding-bottom: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+}
+
+footer {
+  padding-bottom: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+}
+@media (min-width: 768px) {
+  footer {
+    padding-left: 20%;
+  }
+}
+
+h2:first-child {
+  margin-bottom: clamp(2rem, 0.6667rem + 6.6667vw, 6rem);
+}
+
+h1 + h2 {
+  margin-top: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 0.6667rem + 6.6667vw, 6rem);
+}
+.flex > :not(:last-child) {
+  width: 100%;
+  flex-shrink: 0;
+}
+@media (min-width: 768px) {
+  .flex {
+    flex-direction: row;
+  }
+  .flex > :not(:last-child) {
+    width: 10ch;
+  }
+  .flex > :first-child {
+    width: clamp(3rem, 1rem + 10vw, 9rem);
+  }
+}
+.flex:not(:first-child) {
+  margin-top: clamp(3rem, 1rem + 10vw, 9rem);
+}
+.flex:not(:last-child) {
+  margin-bottom: clamp(3rem, 1rem + 10vw, 9rem);
+}
+
+hr {
+  height: 1px;
+  position: relative;
+  top: 0.8rem;
+}
+
+/* footer icons */
+footer a {
+  margin-right: 1.5rem;
+}
+
+/*******************************
 * Selected Works
 *******************************/
 .works .work *,
@@ -220,13 +325,6 @@ p:not(:last-child) {
   left: 0px;
   bottom: 0px;
   padding: clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem);
-}
-.works .work a svg,
-.works .experiment a svg,
-.experiments .work a svg,
-.experiments .experiment a svg {
-  width: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
-  height: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
 }
 .works .experiment img,
 .experiments .experiment img {
@@ -497,123 +595,26 @@ hr {
 }
 
 /* ============== ICONS ============== */
+/* work items icons */
+.icon svg {
+  width: clamp(2rem, 1.6667rem + 1.6667vw, 3rem);
+  height: clamp(2rem, 1.6667rem + 1.6667vw, 3rem);
+}
+
 /* footer icons */
-.bx {
+a.icon {
   display: inline-block;
-  font-size: 2rem;
-  color: inherit;
+  font-size: clamp(2rem, 1.6667rem + 1.6667vw, 3rem);
+  color: yellow;
 }
-
-/*******************************
-* Header and navigation
-*******************************/
-#wrap-social {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem);
-  text-align: center;
-}
-
-#wrap-social li {
-  margin-bottom: 2em;
-  text-transform: uppercase;
-  writing-mode: vertical-lr; /* Vertical text */
-  text-orientation: mixed; /*Rotate text correctly */
-  transform: rotateZ(180deg);
-}
-
-nav a,
-#wrap-social a {
-  text-decoration: none !important;
-  transition: all 1s ease-in-out;
-}
-nav a:hover,
-#wrap-social a:hover {
-  text-decoration: overline !important;
-}
-
-/*******************************
-* Structure
-*******************************/
-section {
-  width: 100%;
-  padding-top: clamp(3rem, 1rem + 10vw, 9rem);
-  padding-bottom: clamp(3rem, 1rem + 10vw, 9rem);
-}
-@media (min-width: 768px) {
-  section {
-    padding-left: 20%;
-  }
-}
-section#footer {
-  padding-bottom: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
-}
-
-footer {
-  padding-bottom: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
-}
-@media (min-width: 768px) {
-  footer {
-    padding-left: 20%;
-  }
-}
-
-h2:first-child {
-  margin-bottom: clamp(2rem, 0.6667rem + 6.6667vw, 6rem);
-}
-
-h1 + h2 {
-  margin-top: clamp(1rem, 0.3333rem + 3.3333vw, 3rem);
-}
-
-.flex {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(2rem, 0.6667rem + 6.6667vw, 6rem);
-}
-.flex > :not(:last-child) {
-  width: 100%;
-  flex-shrink: 0;
-}
-@media (min-width: 768px) {
-  .flex {
-    flex-direction: row;
-  }
-  .flex > :not(:last-child) {
-    width: 10ch;
-  }
-  .flex > :first-child {
-    width: clamp(3rem, 1rem + 10vw, 9rem);
-  }
-}
-.flex:not(:first-child) {
-  margin-top: clamp(3rem, 1rem + 10vw, 9rem);
-}
-.flex:not(:last-child) {
-  margin-bottom: clamp(3rem, 1rem + 10vw, 9rem);
-}
-
-hr {
-  height: 1px;
-  position: relative;
-  top: 0.8rem;
-}
-
-/* footer icons */
-footer a {
-  margin-right: 1.5rem;
+a.icon i {
   transition: all 0.3s ease-in-out;
 }
-footer a i:hover {
+a.icon i:hover {
   border-radius: 50%;
   box-shadow: 0px 0px 0px 16px rgba(0, 0, 0, 0.1);
 }
-footer a i:active {
+a.icon i:active {
   border-radius: 50%;
   box-shadow: 0px 0px 0px 16px rgba(0, 0, 0, 0.3);
 }
