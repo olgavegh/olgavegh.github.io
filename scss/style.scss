@@ -105,16 +105,15 @@ hr {
 }
 
 /* footer icons */
-footer i {
-  display: inline-block;
-  margin-right: $space-xs;
+footer a {
+  margin-right: 1.5rem;
   transition: all 0.3s ease-in-out;
 
-  &:hover {
+  i:hover {
     border-radius: 50%;
     box-shadow: 0px 0px 0px 16px $color-shadow-hover;
   }
-  &:active {
+  i:active {
     border-radius: 50%;
     box-shadow: 0px 0px 0px 16px $color-shadow-focus;
   }

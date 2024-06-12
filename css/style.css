@@ -500,7 +500,6 @@ hr {
 /* footer icons */
 .bx {
   display: inline-block;
-  margin-right: clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem);
   font-size: 2rem;
   color: inherit;
 }
@@ -606,16 +605,15 @@ hr {
 }
 
 /* footer icons */
-footer i {
-  display: inline-block;
-  margin-right: clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem);
+footer a {
+  margin-right: 1.5rem;
   transition: all 0.3s ease-in-out;
 }
-footer i:hover {
+footer a i:hover {
   border-radius: 50%;
   box-shadow: 0px 0px 0px 16px rgba(0, 0, 0, 0.1);
 }
-footer i:active {
+footer a i:active {
   border-radius: 50%;
   box-shadow: 0px 0px 0px 16px rgba(0, 0, 0, 0.3);
 }
