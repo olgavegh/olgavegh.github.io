@@ -36,7 +36,10 @@
       background: var(--thumb-color);
       height: var(--track-height);
     }
-
+    &::-moz-range-track {
+      background: var(--thumb-color);
+      height: var(--track-height);
+    }
     /* === Thumb Styles === */
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
