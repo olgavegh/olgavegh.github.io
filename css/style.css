@@ -315,6 +315,7 @@ footer a {
   margin-right: clamp(0.8rem, 0.1667rem + 1.6667vw, 1.5rem);
   object-fit: cover;
   object-position: top;
+  border-radius: 0.3rem;
 }
 .works .work a,
 .works .experiment a,
@@ -410,6 +411,7 @@ summary {
   line-height: 1.4;
   font-weight: 300;
   text-wrap: balance;
+  text-transform: capitalize;
 }
 
 h3 {
@@ -537,6 +539,7 @@ hr {
   --hover-color: #00ffff;
   /* remove default styles */
   -webkit-appearance: none;
+  appearance: none;
   outline: none;
   background: transparent;
   /* === Track Styles === */
