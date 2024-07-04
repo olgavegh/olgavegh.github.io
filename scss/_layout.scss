@@ -69,15 +69,15 @@ p:not(:last-child) {
   justify-content: center;
   padding: $space-xs;
   text-align: center;
-}
+  li {
+    list-style-type: none;
+    margin-bottom: 2em;
+    text-transform: uppercase;
 
-#wrap-social li {
-  margin-bottom: 2em;
-  text-transform: uppercase;
-
-  writing-mode: vertical-lr; /* Vertical text */
-  text-orientation: mixed; /*Rotate text correctly */
-  transform: rotateZ(180deg);
+    writing-mode: vertical-lr; /* Vertical text */
+    text-orientation: mixed; /*Rotate text correctly */
+    transform: rotateZ(180deg);
+  }
 }
 nav a,
 #wrap-social a {

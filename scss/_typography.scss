@@ -65,16 +65,17 @@ h3 {
   font-weight: 700;
   text-transform: uppercase;
 }
-p {
+p,
+li {
   font-size: clamp(1rem, 0.9583rem + 0.2083vw, 1.125rem); /* 16px-18px */
   line-height: 1.8;
   text-wrap: balance;
   max-width: 80ch;
 }
-ul {
-  font-size: 1rem;
-  line-height: 1.6;
+li {
+  list-style-type: circle;
 }
+
 small {
   font-size: 0.8rem;
 }
