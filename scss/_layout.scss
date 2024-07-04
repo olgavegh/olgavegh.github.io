@@ -57,12 +57,13 @@ p:not(:last-child) {
 /*******************************
 * Header and navigation
 *******************************/
-
-#wrap-social {
+.fixed {
   position: fixed;
   top: 0;
-  right: 0;
   height: 100vh;
+}
+#wrap-social {
+  right: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;

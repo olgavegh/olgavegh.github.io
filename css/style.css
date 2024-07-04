@@ -139,11 +139,14 @@ p:not(:last-child) {
 /*******************************
 * Header and navigation
 *******************************/
-#wrap-social {
+.fixed {
   position: fixed;
   top: 0;
-  right: 0;
   height: 100vh;
+}
+
+#wrap-social {
+  right: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -637,6 +640,24 @@ a.icon i:active {
   font-size: 0.9em;
   opacity: 0.6;
   color: var(--color-white);
+}
+
+/*******************************
+* Background picture
+*******************************/
+.hero {
+  position: relative;
+}
+
+#background-img {
+  left: 0;
+  width: 30%;
+  opacity: 0.3; /* Adjust transparency as needed */
+}
+#background-img img {
+  display: block;
+  float: right;
+  height: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

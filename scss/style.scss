@@ -20,3 +20,22 @@
     color: var(--color-white);
   }
 }
+
+/*******************************
+* Background picture
+*******************************/
+.hero {
+  position: relative;
+}
+#background-img {
+  // border: 1px solid var(--text-color);
+  left: 0;
+  width: 30%;
+  opacity: 0.3; /* Adjust transparency as needed */
+
+  img {
+    display: block;
+    float: right;
+    height: 100%;
+  }
+}
