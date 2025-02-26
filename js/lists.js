@@ -17,6 +17,14 @@ const objWorks = [
     tags: ["Html", "CSS (SCSS)", "JavaScript", "JSON API"],
     link: "https://olgavegh.github.io/weatherapp/",
   },
+  {
+    title: "Rock, Paper, Scissors Game",
+    image: "src/img/work-scrissorgame.png",
+    alt: this.title,
+    description: "A simple Rock, Paper, Scissors game built with React.",
+    tags: ["Html", "CSS", "React"],
+    link: "https://olgavegh.github.io/rock-paper-scissors-react/",
+  },
 ];
 
 let itemWork = "";
