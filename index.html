@@ -48,6 +48,7 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 
     <!-- JS -->
+    <script src="js/lists.js" defer></script>
     <script src="js/colorpicker.js" defer></script>
 
 
@@ -150,54 +151,10 @@
         <section id="projects">
             <h1>Selected Works</h1>
             <p>A selection of projects from 2023-2024</p>
-            <div class="works">
-                <div class="work">
-                    <div class="item">
-                        <img src="src/img/work-collaction.png" alt="Collaction Budapest Cohousing">
-                        <details>
-                            <summary>Collaction Budapest Cohousing</summary>
-                            <p>This is the homepage of a civil organization project. The main goals are information
-                                sharing, organizational growth, and communication.</p>
-                            <div>
-                                <span class="tag">Html</span>
-                                <span class="tag">css</span>
-                                <span class="tag">JavaScript</span>
-                            </div>
-                            <a class="icon" href="https://collactionbudapest.hu" target="_blank" rel="noopener">
-                                <i class="bx bx-link-external "></i>
-                            </a>
-                        </details>
-                        <span class="overlay"></span>
-                    </div>
-                </div>
-                <div class="work">
-                    <div class="item">
-                        <img src="src/img/work-weatherapp.png" alt="Weather Application">
-                        <details>
-                            <summary>Weather Application</summary>
-                            <p>Everyone needs a weather app.<br>This weather application provides
-                                real-time weather
-                                updates
-                                and
-                                forecasts. Users can search for weather information by
-                                city, receiving data like temperature, humidity, wind speed, and a detailed five-day
-                                forecast.
-                            </p>
-                            <div>
-                                <span class="tag">Html</span>
-                                <span class="tag">CSS (SCSS)</span>
-                                <span class="tag">JavaScript</span>
-                                <span class="tag">JSON API</span>
-                            </div>
-                            <a class="icon" href="https://olgavegh.github.io/weatherapp/" target="_blank"
-                                rel="noopener">
-                                <i class="bx bx-link-external "></i>
-                            </a>
-                        </details>
-                        <span class="overlay"></span>
-                    </div>
-                </div>
+            <div class="works" id="arrayWorks">
+                <!-- here will be the list of projects -->
             </div>
+
             <h1>Selected Experiments</h1>
             <p>Some of my experiments from 2021 to 2024.</p>
             <div class="experiments">
